@@ -1,0 +1,2218 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="Favicon.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="Favicon.png" sizes="16x16" />
+  <link rel="shortcut icon" href="Favicon.png" />
+  <link rel="apple-touch-icon" href="Favicon.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ethereal Agency — Meta Ads Premium para Negocios Latinos</title>
+  <meta name="description" content="Ethereal Agency: gestión premium de Meta Ads para negocios latinos. Estrategia personalizada, reportes semanales y resultados medibles." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ================================================================
+       RESET & CUSTOM PROPERTIES
+    ================================================================ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --gold:        #C9A84C;
+      --gold-light:  #E2CA7E;
+      --gold-dark:   #9A7A2E;
+      --gold-glow:   rgba(201,168,76,0.25);
+      --black:       #0a0a0a;
+      --black-2:     #111111;
+      --black-3:     #181818;
+      --black-4:     #1f1f1f;
+      --white:       #F5F3EE;
+      --white-dim:   rgba(245,243,238,0.7);
+      --white-faint: rgba(245,243,238,0.12);
+      --white-ghost: rgba(245,243,238,0.04);
+      --serif:       'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+      --sans:        'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      --ease:        cubic-bezier(0.22, 0.61, 0.36, 1);
+      --nav-h:       72px;
+    }
+    html { scroll-behavior: smooth; scroll-padding-top: var(--nav-h); }
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; display: block; }
+    a { color: inherit; }
+    button { cursor: pointer; border: none; font-family: inherit; }
+
+    /* ================================================================
+       UTILITY
+    ================================================================ */
+    .section-overlay {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .container    { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
+    .container-sm { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+    .text-center  { text-align: center; }
+    .text-gold    { color: var(--gold); }
+
+    .section-label {
+      display: inline-block;
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(34px, 5vw, 58px);
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+    .section-title em { font-style: italic; color: var(--gold); }
+    .section-sub {
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--white-dim);
+      max-width: 600px;
+      line-height: 1.8;
+    }
+    .section-sub.centered { margin: 0 auto; text-align: center; }
+    .divider {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 40px auto;
+    }
+
+    /* ================================================================
+       BUTTONS
+    ================================================================ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 16px 34px;
+      transition: all 0.35s var(--ease);
+      position: relative;
+      overflow: hidden;
+    }
+    .btn::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.12);
+      transform: translateX(-101%);
+      transition: transform 0.45s var(--ease);
+    }
+    .btn:hover::after { transform: translateX(0); }
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+      color: var(--black);
+    }
+    .btn-gold:hover { box-shadow: 0 12px 44px var(--gold-glow); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(245,243,238,0.2);
+    }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    .btn-wa {
+      background: transparent;
+      color: #25D366;
+      border: 1px solid #25D366;
+    }
+    .btn-wa:hover { background: #25D366; color: var(--black); box-shadow: 0 8px 32px rgba(37,211,102,0.25); }
+
+    /* ================================================================
+       NAVBAR
+    ================================================================ */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      background: rgba(10,10,10,0.6);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(201,168,76,0);
+      transition: all 0.4s;
+    }
+    .navbar.scrolled {
+      background: rgba(10,10,10,0.95);
+      border-bottom-color: rgba(201,168,76,0.12);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+    }
+    .nav-logo img { height: 44px; width: auto; }
+    .nav-cta {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      border: 1px solid var(--gold);
+      padding: 10px 22px;
+      transition: all 0.3s;
+    }
+    .nav-cta:hover { background: var(--gold); color: var(--black); }
+
+    /* ================================================================
+       1 — HERO
+    ================================================================ */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: calc(var(--nav-h) + 60px) 24px 80px;
+      position: relative;
+      overflow: hidden;
+      background: url('ethereal-assets/portada-principal.png') center/cover no-repeat;
+    }
+    /* decorative grid */
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(201,168,76,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,0.035) 1px, transparent 1px);
+      background-size: 70px 70px;
+      mask-image: radial-gradient(ellipse at center, black 20%, transparent 75%);
+      -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 75%);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* 2-column layout inside hero */
+    .hero-layout {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      gap: 60px;
+      position: relative;
+      z-index: 2;
+      width: 100%;
+    }
+    .hero-text { flex: 1; min-width: 0; }
+    .hero-photo {
+      flex: 0 0 40%;
+      max-width: 460px;
+    }
+    .hero-photo img {
+      width: 100%;
+      border: 1px solid var(--gold);
+      box-shadow: 0 24px 80px rgba(0,0,0,0.6), 0 0 40px rgba(201,168,76,0.08);
+      display: block;
+    }
+    .hero-photo-badge {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .hero-photo-badge::before,
+    .hero-photo-badge::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.6;
+    }
+    .hero-photo-badge span {
+      background: rgba(0,0,0,0.5);
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      font-family: var(--sans);
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      white-space: nowrap;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+    .hero-eyebrow::before,
+    .hero-eyebrow::after {
+      content: '';
+      width: 44px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.5;
+    }
+    .hero-eyebrow span {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(40px, 7vw, 82px);
+      font-weight: 400;
+      line-height: 1.08;
+      letter-spacing: -0.5px;
+      margin-bottom: 28px;
+    }
+    .hero h1 em { font-style: italic; color: var(--gold); }
+
+    .hero-sub {
+      font-size: clamp(16px, 2vw, 19px);
+      font-weight: 300;
+      color: var(--white-dim);
+      max-width: 560px;
+      margin: 0 0 48px;
+      line-height: 1.85;
+    }
+
+    .hero-ctas {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: flex-start;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+    }
+    .scroll-line {
+      width: 1px;
+      height: 56px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: scrollPulse 2.5s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+
+    /* ================================================================
+       1.5 — FRASES
+    ================================================================ */
+    .frases {
+      padding: 88px 0;
+      background: var(--black);
+      text-align: center;
+      position: relative;
+    }
+    .frases::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 5%, rgba(201,168,76,0.3) 50%, transparent 95%);
+    }
+    .frases::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 5%, rgba(201,168,76,0.3) 50%, transparent 95%);
+    }
+    .frase-item {
+      font-family: var(--serif);
+      font-size: clamp(20px, 3vw, 34px);
+      font-weight: 400;
+      line-height: 1.45;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+      font-style: italic;
+    }
+    .frase-divider {
+      width: 48px;
+      height: 1px;
+      background: rgba(201,168,76,0.25);
+      margin: 36px auto;
+    }
+    .frase-gold { color: var(--gold); }
+
+    /* ================================================================
+       2 — PROBLEMA
+    ================================================================ */
+    .problema {
+      padding: 120px 0;
+      background-image: url('ethereal-assets/imagen-problemas.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+    }
+    .problema .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .problema-header { text-align: center; margin-bottom: 64px; }
+
+    .pain-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .pain-card {
+      background: var(--black-2);
+      border: 1px solid rgba(201,168,76,0.1);
+      padding: 40px 32px;
+      position: relative;
+      transition: all 0.4s var(--ease);
+    }
+    .pain-card:hover {
+      border-color: rgba(201,168,76,0.35);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+    }
+    .pain-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s var(--ease);
+    }
+    .pain-card:hover::before { transform: scaleX(1); }
+
+    .pain-icon {
+      width: 48px;
+      height: 48px;
+      border: 1px solid rgba(201,168,76,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 22px;
+    }
+    .pain-icon svg { width: 22px; height: 22px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
+
+    .pain-card h3 {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 500;
+      margin-bottom: 10px;
+      color: var(--white);
+    }
+    .pain-card p {
+      font-size: 14px;
+      color: var(--white-dim);
+      line-height: 1.75;
+    }
+
+    /* ================================================================
+       2.5 — SERVICIOS
+    ================================================================ */
+    .servicios {
+      padding: 120px 0;
+      background: var(--black);
+      position: relative;
+      overflow: hidden;
+    }
+    .servicios::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 50% at 50% 0%, rgba(201,168,76,0.05) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .servicios::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 5%, rgba(201,168,76,0.25) 50%, transparent 95%);
+    }
+
+    .servicios-header {
+      text-align: center;
+      margin-bottom: 72px;
+      position: relative;
+    }
+
+    .servicios-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      position: relative;
+      margin-bottom: 64px;
+    }
+
+    .servicio-card {
+      background: var(--black-2);
+      border: 1px solid rgba(201,168,76,0.12);
+      padding: 48px 32px 40px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.4s var(--ease);
+    }
+    .servicio-card:hover {
+      border-color: rgba(201,168,76,0.4);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .servicio-card.featured {
+      border-color: rgba(201,168,76,0.35);
+      background: linear-gradient(180deg, rgba(201,168,76,0.04) 0%, var(--black-2) 40%);
+    }
+    .servicio-card.featured:hover {
+      border-color: var(--gold);
+      box-shadow: 0 20px 60px rgba(201,168,76,0.12);
+    }
+
+    .servicio-badge {
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+      color: var(--black);
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 16px;
+      white-space: nowrap;
+      box-shadow: 0 4px 16px rgba(201,168,76,0.25);
+    }
+
+    .servicio-gem {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.5s var(--ease);
+      filter: drop-shadow(0 6px 18px rgba(201,168,76,0.2));
+    }
+    .servicio-card:hover .servicio-gem {
+      transform: scale(1.08) rotate(5deg);
+      filter: drop-shadow(0 10px 26px rgba(201,168,76,0.45));
+    }
+    .servicio-card.featured .servicio-gem {
+      filter: drop-shadow(0 6px 22px rgba(201,168,76,0.4));
+    }
+    .servicio-card.featured:hover .servicio-gem {
+      filter: drop-shadow(0 12px 32px rgba(201,168,76,0.65));
+    }
+    .servicio-gem svg { width: 100%; height: 100%; display: block; }
+
+    .servicio-card h3 {
+      font-family: var(--serif);
+      font-size: 26px;
+      font-weight: 500;
+      color: var(--white);
+      text-align: center;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+    .servicio-subtitle {
+      font-family: var(--serif);
+      font-size: 16px;
+      font-style: italic;
+      color: var(--gold);
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .servicio-desc {
+      font-size: 14px;
+      color: var(--white-dim);
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+
+    .servicio-bullets {
+      list-style: none;
+      padding: 20px 0;
+      border-top: 1px solid rgba(201,168,76,0.12);
+      border-bottom: 1px solid rgba(201,168,76,0.12);
+      margin-bottom: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+    .servicio-bullets li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 13px;
+      color: var(--white-dim);
+      line-height: 1.55;
+    }
+    .servicio-bullets li::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+
+    .servicio-ideal {
+      font-size: 13px;
+      color: var(--white-dim);
+      line-height: 1.65;
+      margin-top: auto;
+      padding-top: 4px;
+    }
+    .servicio-ideal strong {
+      color: var(--gold);
+      font-weight: 600;
+      display: block;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .servicios-cta {
+      text-align: center;
+      padding: 40px 24px;
+      border-top: 1px solid rgba(201,168,76,0.12);
+    }
+    .servicios-cta p {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 22px;
+      font-style: italic;
+    }
+
+    /* ================================================================
+       SOBRE MÍ
+    ================================================================ */
+    .sobre-mi {
+      padding: 120px 0;
+      background: url('ethereal-assets/portada-fondo-2.png') center/cover no-repeat;
+      position: relative;
+    }
+    .sobre-mi .container {
+      position: relative;
+      z-index: 1;
+    }
+    .sobre-mi-layout {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 72px;
+      align-items: start;
+    }
+    .sobre-mi-photo img {
+      width: 100%;
+      border: 1px solid var(--gold);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.55);
+      display: block;
+    }
+    .sobre-mi-text .section-label { margin-bottom: 16px; }
+    .sobre-mi-text h2 {
+      font-family: var(--serif);
+      font-size: clamp(28px, 3.5vw, 46px);
+      font-weight: 400;
+      color: var(--gold);
+      margin-bottom: 32px;
+      line-height: 1.2;
+    }
+    .sobre-mi-text p {
+      font-size: 15px;
+      color: var(--white-dim);
+      line-height: 1.9;
+      margin-bottom: 18px;
+    }
+    .sobre-mi-text p:last-child { margin-bottom: 0; }
+
+    /* ================================================================
+       NICHOS
+    ================================================================ */
+    .nichos {
+      padding: 100px 0;
+      background: var(--black);
+      position: relative;
+    }
+    .nichos::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 5%, rgba(201,168,76,0.25) 50%, transparent 95%);
+    }
+    .nichos-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .nichos-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .nicho-badge {
+      background: #1a1a1a;
+      border: 1px solid rgba(201,168,76,0.2);
+      padding: 28px 16px 22px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.35s var(--ease);
+    }
+    .nicho-badge:hover {
+      border-color: var(--gold);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+    .nicho-emoji {
+      font-size: 30px;
+      line-height: 1;
+    }
+    .nicho-name {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--white);
+      letter-spacing: 0.3px;
+    }
+
+    /* ================================================================
+       3 — SOLUCION (Timeline)
+    ================================================================ */
+    .solucion {
+      padding: 120px 0;
+      background-image: url('ethereal-assets/proceso-fondo.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+    }
+    .solucion .container {
+      position: relative;
+      z-index: 1;
+    }
+    .solucion-header { text-align: center; margin-bottom: 72px; }
+
+    .timeline {
+      position: relative;
+      max-width: 720px;
+      margin: 0 auto 56px;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 28px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--gold), rgba(201,168,76,0.1));
+    }
+    .tl-step {
+      position: relative;
+      padding: 0 0 56px 76px;
+    }
+    .tl-step:last-child { padding-bottom: 0; }
+
+    .tl-dot {
+      position: absolute;
+      left: 16px;
+      top: 4px;
+      width: 25px;
+      height: 25px;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      background: var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .tl-dot::after {
+      content: '';
+      width: 9px;
+      height: 9px;
+      background: var(--gold);
+      border-radius: 50%;
+    }
+
+    .tl-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .tl-title {
+      font-family: var(--serif);
+      font-size: 24px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+    .tl-desc {
+      font-size: 15px;
+      color: var(--white-dim);
+      line-height: 1.8;
+    }
+
+    .solucion-note {
+      text-align: center;
+      font-family: var(--serif);
+      font-size: 19px;
+      font-style: italic;
+      color: var(--gold-light);
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 32px 28px;
+      border: 1px solid rgba(201,168,76,0.15);
+      background: rgba(201,168,76,0.03);
+      line-height: 1.7;
+    }
+
+    /* ================================================================
+       4 — DIFERENCIAL
+    ================================================================ */
+    .diferencial {
+      padding: 120px 0;
+      background: var(--black);
+      position: relative;
+    }
+    .diferencial::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 5%, rgba(201,168,76,0.2) 50%, transparent 95%);
+    }
+    .diferencial-header { text-align: center; margin-bottom: 64px; }
+
+    .diferencial-body {
+      display: flex;
+      gap: 52px;
+      align-items: flex-start;
+    }
+    .diferencial-body .diff-grid {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .diferencial-photo {
+      flex: 0 0 260px;
+      position: sticky;
+      top: calc(var(--nav-h) + 24px);
+    }
+    .diferencial-photo img {
+      width: 100%;
+      border: 1px solid var(--gold);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.45);
+      display: block;
+    }
+
+    .diff-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+    .diff-card {
+      padding: 44px 36px;
+      background: var(--black-2);
+      border: 1px solid rgba(201,168,76,0.15);
+      position: relative;
+      transition: all 0.4s var(--ease);
+    }
+    .diff-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+      box-shadow: 0 0 40px rgba(201,168,76,0.08);
+    }
+
+    .diff-icon {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: var(--gold);
+      display: block;
+    }
+    .diff-card h3 {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    .diff-card p {
+      font-size: 14px;
+      color: var(--white-dim);
+      line-height: 1.75;
+    }
+
+    /* ================================================================
+       5 — GARANTIA
+    ================================================================ */
+    .prueba {
+      padding: 100px 0;
+      background: var(--black);
+      position: relative;
+      overflow: hidden;
+    }
+    .prueba::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .prueba::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+
+    .prueba-inner {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .prueba-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.25);
+      padding: 8px 20px;
+      margin-bottom: 32px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .prueba-title {
+      font-family: var(--serif);
+      font-size: clamp(36px, 5vw, 54px);
+      font-weight: 400;
+      margin-bottom: 24px;
+      line-height: 1.15;
+    }
+    .prueba-title em { font-style: italic; color: var(--gold); }
+    .prueba-desc {
+      font-size: 17px;
+      color: var(--white-dim);
+      line-height: 1.85;
+      margin-bottom: 20px;
+    }
+    .prueba-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 40px;
+      text-align: left;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .prueba-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 15px;
+      color: var(--white-dim);
+      line-height: 1.6;
+    }
+    .prueba-list li .check {
+      color: var(--gold);
+      font-size: 16px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ================================================================
+       6 — PRUEBA SOCIAL (Video)
+    ================================================================ */
+    .testimonios {
+      padding: 120px 0;
+      background: var(--black);
+    }
+    .testimonios-header { text-align: center; margin-bottom: 56px; }
+
+    .video-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      border: 1px solid rgba(201,168,76,0.2);
+      background: var(--black-3);
+      overflow: hidden;
+    }
+    .video-wrapper::before {
+      content: '';
+      position: absolute;
+      top: -1px; left: 60px; right: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      z-index: 2;
+    }
+    .video-wrapper video {
+      width: 100%;
+      display: block;
+    }
+    .video-caption {
+      text-align: center;
+      margin-top: 24px;
+      font-family: var(--serif);
+      font-size: 16px;
+      font-style: italic;
+      color: var(--white-dim);
+    }
+
+    /* ================================================================
+       7 — APLICACION (Form)
+    ================================================================ */
+    .aplicacion {
+      padding: 120px 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(201,168,76,0.05) 0%, transparent 60%),
+        linear-gradient(180deg, #0d0d0d 0%, #0a0a0a 50%, #0d0d0d 100%);
+      position: relative;
+    }
+    .aplicacion::before,
+    .aplicacion::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201,168,76,0.25), transparent);
+    }
+    .aplicacion::before { top: 0; }
+    .aplicacion::after  { bottom: 0; }
+
+    .aplicacion-header { text-align: center; margin-bottom: 56px; }
+
+    .app-form {
+      max-width: 640px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .form-group { display: flex; flex-direction: column; gap: 8px; }
+    .form-group label {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      background: rgba(245,243,238,0.03);
+      border: 1px solid rgba(201,168,76,0.2);
+      color: var(--white);
+      font-family: var(--sans);
+      font-size: 14px;
+      padding: 14px 18px;
+      outline: none;
+      transition: border-color 0.3s, box-shadow 0.3s;
+      width: 100%;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(245,243,238,0.25);
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(201,168,76,0.1);
+    }
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C9A84C' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 16px center;
+      padding-right: 40px;
+      cursor: pointer;
+    }
+    .form-group select option {
+      background: #1a1a1a;
+      color: var(--white);
+    }
+
+    .form-group-label {
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+    .radio-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .radio-cards input[type="radio"] { display: none; }
+    .radio-cards label {
+      display: inline-block;
+      background: rgba(245,243,238,0.03);
+      border: 1px solid rgba(201,168,76,0.2);
+      color: var(--white-dim);
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0;
+      text-transform: none;
+      padding: 11px 18px;
+      cursor: pointer;
+      transition: all 0.3s var(--ease);
+      line-height: 1.4;
+    }
+    .radio-cards label:hover {
+      border-color: var(--gold);
+      color: var(--white);
+    }
+    .radio-cards input[type="radio"]:checked + label {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+      border-color: var(--gold);
+      color: var(--black);
+      font-weight: 600;
+    }
+
+    .form-submit {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+      color: var(--black);
+      font-family: var(--sans);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 18px 36px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.35s var(--ease);
+      margin-top: 8px;
+      position: relative;
+      overflow: hidden;
+    }
+    .form-submit::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.15);
+      transform: translateX(-101%);
+      transition: transform 0.45s var(--ease);
+    }
+    .form-submit:hover::after { transform: translateX(0); }
+    .form-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 44px var(--gold-glow);
+    }
+    .form-legal {
+      font-size: 11px;
+      color: rgba(245,243,238,0.4);
+      text-align: center;
+      line-height: 1.6;
+    }
+    .form-legal a {
+      color: rgba(201,168,76,0.6);
+      text-decoration: underline;
+    }
+    .form-legal a:hover { color: var(--gold); }
+
+    /* ================================================================
+       8 — CTA FINAL
+    ================================================================ */
+    .cta-final {
+      padding: 120px 0;
+      background: url('ethereal-assets/portada-principal.png') center/cover no-repeat;
+      position: relative;
+    }
+    .cta-final .container {
+      position: relative;
+      z-index: 1;
+    }
+    .cta-final-header {
+      text-align: center;
+      margin-bottom: 72px;
+      position: relative;
+    }
+    .cta-final-header p {
+      font-size: 17px;
+      color: var(--white-dim);
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    .cta-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      position: relative;
+    }
+    .cta-card {
+      background: rgba(10,10,10,0.75);
+      padding: 48px 36px;
+      text-align: center;
+      border-top: 2px solid transparent;
+      transition: all 0.4s var(--ease);
+      backdrop-filter: blur(8px);
+    }
+    .cta-card.featured { border-top-color: var(--gold); }
+    .cta-card:hover { background: rgba(24,24,24,0.85); transform: translateY(-4px); }
+
+    .cta-card-icon {
+      width: 60px;
+      height: 60px;
+      border: 1px solid rgba(201,168,76,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+      font-size: 24px;
+    }
+    .cta-card h3 {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+    .cta-card p {
+      font-size: 13px;
+      color: var(--white-dim);
+      margin-bottom: 28px;
+      line-height: 1.75;
+    }
+
+    /* ================================================================
+       FOOTER
+    ================================================================ */
+    footer {
+      background: var(--black);
+      border-top: 1px solid rgba(201,168,76,0.1);
+      padding: 48px 0;
+      text-align: center;
+    }
+    .footer-logo img { height: 40px; margin: 0 auto 20px; }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      font-size: 12px;
+      color: var(--white-dim);
+      text-decoration: none;
+      letter-spacing: 1px;
+      transition: color 0.3s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-copy {
+      font-size: 11px;
+      color: rgba(245,243,238,0.25);
+    }
+
+    /* ================================================================
+       FLOATING WHATSAPP
+    ================================================================ */
+    .wa-float-wrapper {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .wa-label {
+      background: rgba(10,10,10,0.88);
+      color: var(--white);
+      font-family: var(--sans);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 8px 14px;
+      white-space: nowrap;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 4px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+    }
+    .wa-float {
+      width: 56px;
+      height: 56px;
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      box-shadow: 0 6px 24px rgba(37,211,102,0.35);
+      text-decoration: none;
+      transition: transform 0.3s, box-shadow 0.3s;
+      flex-shrink: 0;
+    }
+    .wa-float:hover { transform: scale(1.12); box-shadow: 0 10px 36px rgba(37,211,102,0.5); }
+    .wa-float svg { width: 28px; height: 28px; fill: white; }
+
+    /* ================================================================
+       ANIMATIONS
+    ================================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+    .reveal-d4 { transition-delay: 0.35s; }
+
+    /* ================================================================
+       RESPONSIVE
+    ================================================================ */
+    @media (max-width: 1100px) {
+      .diferencial-photo { flex: 0 0 220px; }
+    }
+    @media (max-width: 900px) {
+      /* Hero */
+      .hero-layout {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+      }
+      .hero-photo {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 360px;
+        margin: 0 auto;
+      }
+      .hero-text .hero-sub { margin: 0 auto 48px; }
+      .hero-ctas { justify-content: center; }
+
+      /* Grids */
+      .pain-grid,
+      .diff-grid { grid-template-columns: 1fr; }
+      .cta-cards { grid-template-columns: 1fr; }
+      .servicios-grid { grid-template-columns: 1fr; }
+
+      /* Sobre mí */
+      .sobre-mi-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .sobre-mi-photo { max-width: 320px; margin: 0 auto; }
+
+      /* Nichos */
+      .nichos-grid { grid-template-columns: repeat(2, 1fr); }
+
+      /* Diferencial */
+      .diferencial-body { flex-direction: column; }
+      .diferencial-photo {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 320px;
+        margin: 0 auto;
+        position: static;
+      }
+
+      .nav-logo img { height: 36px; }
+    }
+    @media (max-width: 600px) {
+      .hero-ctas { flex-direction: column; align-items: center; }
+      .hero h1 { font-size: clamp(34px, 9vw, 52px); }
+      .nav-cta { padding: 8px 14px; font-size: 9px; letter-spacing: 1.5px; }
+      :root { --nav-h: 60px; }
+      .frase-item { font-size: clamp(18px, 5vw, 26px); }
+      .wa-label { font-size: 12px; padding: 7px 11px; }
+      .nichos-grid { gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       NAVBAR
+  ============================================================ -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-inner">
+      <a href="#" class="nav-logo">
+        <img src="ethereal-assets/logo.png" alt="Ethereal Agency" />
+      </a>
+      <a href="https://calendly.com/aagudelosales/sesion-de-admision-ethereal-agency" target="_blank" rel="noopener" class="nav-cta">Agenda tu sesion gratuita</a>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       1 — HERO
+  ============================================================ -->
+  <section class="hero" id="inicio">
+    <div class="section-overlay" style="background: rgba(0,0,0,0.65)"></div>
+    <div class="hero-grid"></div>
+    <div class="container hero-layout">
+
+      <!-- Foto primero en el DOM → aparece arriba en móvil, derecha en desktop -->
+      <div class="hero-photo reveal reveal-d3">
+        <div class="hero-photo-badge">
+          <span>Mateo Agudelo &mdash; Fundador de Ethereal Agency</span>
+        </div>
+        <img src="ethereal-assets/hero.png" alt="Mateo Agudelo — Fundador de Ethereal Agency" />
+      </div>
+
+      <div class="hero-text">
+        <div class="hero-eyebrow reveal">
+          <span>Meta Ads Premium para Negocios Latinos</span>
+        </div>
+
+        <h1 class="reveal reveal-d1">
+          Deja de perder dinero en<br />
+          publicidad que <em>no funciona</em>
+        </h1>
+
+        <p class="hero-sub reveal reveal-d2">
+          Creamos un sistema de adquisicion de clientes predecible para tu negocio
+          con Meta Ads. Sin promesas vacias, sin agencias genericas
+          — solo estrategia real y resultados que puedes medir.
+        </p>
+
+        <div class="hero-ctas reveal reveal-d3">
+          <a href="https://calendly.com/aagudelosales/sesion-de-admision-ethereal-agency" target="_blank" rel="noopener" class="btn btn-gold">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Agenda tu sesion gratuita
+          </a>
+          <a href="https://wa.me/573187855875?text=Hola%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20Ethereal%20Agency" target="_blank" rel="noopener" class="btn btn-outline">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+            Escribenos por WhatsApp
+          </a>
+        </div>
+      </div>
+
+    </div>
+    <div class="hero-scroll"><div class="scroll-line"></div></div>
+  </section>
+
+  <!-- ============================================================
+       1.5 — FRASES
+  ============================================================ -->
+  <section class="frases">
+    <div class="container-sm">
+      <p class="frase-item reveal">
+        "Las agencias tradicionales solo buscan vender por vender, sin conectar de verdad."
+      </p>
+      <div class="frase-divider"></div>
+      <p class="frase-item frase-gold reveal reveal-d1">
+        "Hoy no vende el que más trucos de publicidad se sabe. Vende el que más conecta."
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       2 — PROBLEMA
+  ============================================================ -->
+  <section class="problema" id="problema">
+    <div class="section-overlay" style="background: rgba(0,0,0,0.75)"></div>
+    <div class="container">
+      <div class="problema-header">
+        <span class="section-label reveal">El problema</span>
+        <h2 class="section-title reveal reveal-d1">
+          ¿Te suena <em>familiar</em>?
+        </h2>
+        <p class="section-sub centered reveal reveal-d2">
+          Estos son los problemas reales que viven los dueños de negocio
+          que dependen de la suerte para conseguir clientes.
+        </p>
+      </div>
+
+      <div class="pain-grid">
+        <div class="pain-card reveal">
+          <div class="pain-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <h3>Tus clientes llegan por suerte</h3>
+          <p>
+            Dependes del voz a voz, de las recomendaciones y de la casualidad.
+            No tienes un sistema predecible que te traiga clientes cada semana
+            — y eso te quita tranquilidad.
+          </p>
+        </div>
+        <div class="pain-card reveal reveal-d1">
+          <div class="pain-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+          </div>
+          <h3>Invertiste y perdiste dinero</h3>
+          <p>
+            Ya probaste pautar por tu cuenta o con una agencia que te prometio
+            resultados y no cumplio. Ahora desconfias, y con razon.
+            Sientes que tiraste ese presupuesto a la basura.
+          </p>
+        </div>
+        <div class="pain-card reveal reveal-d2">
+          <div class="pain-icon">
+            <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <h3>Tu competencia te esta ganando</h3>
+          <p>
+            Mientras tu sigues haciendo lo mismo de siempre, tu competencia
+            ya esta pautando, apareciendo en redes y llevandose a tus clientes
+            potenciales. Y cada dia la brecha crece mas.
+          </p>
+        </div>
+        <div class="pain-card reveal reveal-d3">
+          <div class="pain-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <h3>No tienes tiempo ni conocimiento</h3>
+          <p>
+            Has intentado manejar tus propios anuncios pero entre atender
+            tu negocio, tus clientes y tu equipo, no te queda tiempo
+            — y la curva de aprendizaje es enorme.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       2.5 — SERVICIOS
+  ============================================================ -->
+  <section class="servicios" id="servicios">
+    <div class="container">
+      <div class="servicios-header">
+        <span class="section-label reveal">Nuestros servicios</span>
+        <h2 class="section-title reveal reveal-d1">
+          Tres formas de <em>trabajar juntos</em>
+        </h2>
+        <p class="section-sub centered reveal reveal-d2">
+          Cada negocio esta en un momento distinto. Por eso ofrecemos
+          diferentes caminos para ayudarte a crecer — elegimos el correcto contigo.
+        </p>
+        <div class="divider"></div>
+      </div>
+
+      <div class="servicios-grid">
+
+        <!-- Card 1 — Gestion Completa -->
+        <div class="servicio-card reveal">
+          <div class="servicio-gem" aria-hidden="true">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="gem1Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%"   stop-color="#E2CA7E"/>
+                  <stop offset="50%"  stop-color="#C9A84C"/>
+                  <stop offset="100%" stop-color="#9A7A2E"/>
+                </linearGradient>
+                <linearGradient id="gem1Shine" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%"   stop-color="#FFF4C9" stop-opacity="0.85"/>
+                  <stop offset="100%" stop-color="#FFF4C9" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <polygon points="50,6 92,50 50,94 8,50" fill="url(#gem1Grad)" stroke="#E2CA7E" stroke-width="1.2"/>
+              <polygon points="50,6 70,32 50,50 30,32" fill="url(#gem1Shine)" opacity="0.55"/>
+              <polygon points="50,50 70,32 92,50 70,68" fill="#E2CA7E" opacity="0.25"/>
+              <polygon points="50,50 30,32 8,50 30,68"  fill="#9A7A2E" opacity="0.25"/>
+              <polygon points="50,50 30,68 50,94 70,68" fill="#6B5424" opacity="0.35"/>
+              <polygon points="50,6 58,18 50,28 42,18" fill="#FFF4C9" opacity="0.7"/>
+            </svg>
+          </div>
+          <h3>Gestion Completa de Campañas</h3>
+          <p class="servicio-subtitle">"Manejamos todo por ti"</p>
+          <p class="servicio-desc">
+            Nos encargamos de tu estrategia publicitaria en Meta Ads de
+            principio a fin. Tu apruebas, nosotros ejecutamos y optimizamos cada dia.
+          </p>
+          <ul class="servicio-bullets">
+            <li>Estrategia y creativos incluidos</li>
+            <li>Optimizacion y monitoreo diario</li>
+            <li>Reporte semanal de resultados</li>
+            <li>Comunicacion directa constante</li>
+          </ul>
+          <p class="servicio-ideal">
+            <strong>Ideal para</strong>
+            Negocios que quieren delegar y enfocarse en su operacion.
+          </p>
+        </div>
+
+        <!-- Card 2 — Consultoria (Featured) -->
+        <div class="servicio-card featured reveal reveal-d1">
+          <div class="servicio-badge">Mas solicitado</div>
+          <div class="servicio-gem" aria-hidden="true">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="gem2Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%"   stop-color="#FFECB0"/>
+                  <stop offset="50%"  stop-color="#E2CA7E"/>
+                  <stop offset="100%" stop-color="#C9A84C"/>
+                </linearGradient>
+                <linearGradient id="gem2Shine" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%"   stop-color="#FFFBE6" stop-opacity="1"/>
+                  <stop offset="100%" stop-color="#FFFBE6" stop-opacity="0"/>
+                </linearGradient>
+                <radialGradient id="gem2Glow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%"   stop-color="#FFF4C9" stop-opacity="0.5"/>
+                  <stop offset="100%" stop-color="#FFF4C9" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+              <circle cx="50" cy="50" r="48" fill="url(#gem2Glow)"/>
+              <polygon points="50,6 92,50 50,94 8,50" fill="url(#gem2Grad)" stroke="#FFECB0" stroke-width="1.4"/>
+              <polygon points="50,6 70,32 50,50 30,32" fill="url(#gem2Shine)" opacity="0.75"/>
+              <polygon points="50,50 70,32 92,50 70,68" fill="#FFECB0" opacity="0.3"/>
+              <polygon points="50,50 30,32 8,50 30,68"  fill="#9A7A2E" opacity="0.22"/>
+              <polygon points="50,50 30,68 50,94 70,68" fill="#6B5424" opacity="0.32"/>
+              <polygon points="50,6 58,18 50,28 42,18" fill="#FFFBE6" opacity="0.9"/>
+              <polygon points="12,50 18,48 18,52" fill="#FFFBE6" opacity="0.6"/>
+            </svg>
+          </div>
+          <h3>Consultoria Estrategica</h3>
+          <p class="servicio-subtitle">"Tu ejecutas, nosotros dirigimos"</p>
+          <p class="servicio-desc">
+            Analizamos tu situacion, identificamos que esta fallando y te
+            entregamos un plan de accion concreto. Tu equipo lo implementa con claridad total.
+          </p>
+          <ul class="servicio-bullets">
+            <li>Videollamada de 60 a 90 minutos</li>
+            <li>Analisis previo de campañas y embudo</li>
+            <li>Diagnostico escrito detallado</li>
+            <li>Plan de accion entregado en 24 horas</li>
+          </ul>
+          <p class="servicio-ideal">
+            <strong>Ideal para</strong>
+            Negocios con equipo propio que necesitan direccion profesional.
+          </p>
+        </div>
+
+        <!-- Card 3 — IA y CRM -->
+        <div class="servicio-card reveal reveal-d2">
+          <div class="servicio-gem" aria-hidden="true">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="gem3Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%"   stop-color="#E2CA7E"/>
+                  <stop offset="50%"  stop-color="#C9A84C"/>
+                  <stop offset="100%" stop-color="#9A7A2E"/>
+                </linearGradient>
+                <linearGradient id="gem3Shine" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%"   stop-color="#FFF4C9" stop-opacity="0.85"/>
+                  <stop offset="100%" stop-color="#FFF4C9" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <polygon points="50,6 92,50 50,94 8,50" fill="url(#gem3Grad)" stroke="#E2CA7E" stroke-width="1.2"/>
+              <polygon points="50,6 70,32 50,50 30,32" fill="url(#gem3Shine)" opacity="0.55"/>
+              <polygon points="50,50 70,32 92,50 70,68" fill="#E2CA7E" opacity="0.25"/>
+              <polygon points="50,50 30,32 8,50 30,68"  fill="#9A7A2E" opacity="0.25"/>
+              <polygon points="50,50 30,68 50,94 70,68" fill="#6B5424" opacity="0.35"/>
+              <polygon points="50,6 58,18 50,28 42,18" fill="#FFF4C9" opacity="0.7"/>
+            </svg>
+          </div>
+          <h3>Integracion de IA y CRM</h3>
+          <p class="servicio-subtitle">"Tu negocio trabaja solo"</p>
+          <p class="servicio-desc">
+            Implementamos un sistema automatizado que responde leads, hace
+            seguimiento y conecta tus herramientas — sin que tu muevas un dedo.
+          </p>
+          <ul class="servicio-bullets">
+            <li>CRM configurado en GoHighLevel</li>
+            <li>Respuestas automaticas por WhatsApp</li>
+            <li>Flujos de seguimiento y reactivacion</li>
+            <li>Integraciones con Meta Ads y mas</li>
+          </ul>
+          <p class="servicio-ideal">
+            <strong>Ideal para</strong>
+            Negocios con volumen de leads que pierden ventas por falta de seguimiento.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="servicios-cta reveal">
+        <p>¿No sabes cual es el correcto para tu negocio?</p>
+        <a href="https://calendly.com/aagudelosales/sesion-de-admision-ethereal-agency" target="_blank" rel="noopener" class="btn btn-gold">
+          Hablemos y te orientamos gratis
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       QUIÉN ESTÁ DETRÁS DE ETHEREAL
+  ============================================================ -->
+  <section class="sobre-mi" id="sobre-mi">
+    <div class="section-overlay" style="background: rgba(0,0,0,0.70)"></div>
+    <div class="container">
+      <div class="sobre-mi-layout">
+
+        <div class="sobre-mi-photo reveal">
+          <img src="ethereal-assets/sobre-mi.png" alt="Mateo Agudelo — Ethereal Agency" />
+        </div>
+
+        <div class="sobre-mi-text">
+          <span class="section-label reveal">El equipo</span>
+          <h2 class="reveal reveal-d1">Quién está detrás de Ethereal</h2>
+
+          <p class="reveal reveal-d2">
+            Mateo Agudelo, joven paisa de Medellín, Colombia. Llevo 3 años en el mundo del marketing digital.
+          </p>
+          <p class="reveal reveal-d2">
+            Empecé en ventas — como closer y marketing assistant trabajé en proyectos en Colombia, Latinoamérica y Estados Unidos, incluyendo una academia de inglés del mercado americano. En ese tiempo participé en estrategias que generaron más de 70.000 dólares en ventas entre embudos, copies y comunicación comercial.
+          </p>
+          <p class="reveal reveal-d3">
+            Hace un año me especialicé en tráfico de pago. Trabajé como Media Buyer freelance e hice parte del equipo de una agencia top performer en España, una de las más reconocidas en ese sector. Todo esto me dio acceso a metodologías y estándares que la mayoría de agencias en Latinoamérica todavía no aplican.
+          </p>
+          <p class="reveal reveal-d3">
+            Por eso creé Ethereal: vi el mismo patrón repetirse — negocios buenos, con productos reales, perdiendo clientes potenciales todos los días solo porque nadie les estaba mostrando al mundo lo que hacen. Eso tiene solución. Y es exactamente lo que hacemos.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       NICHOS
+  ============================================================ -->
+  <section class="nichos" id="nichos">
+    <div class="container">
+      <div class="nichos-header">
+        <span class="section-label reveal">Experiencia comprobada</span>
+        <h2 class="section-title reveal reveal-d1">Nichos en los que hemos trabajado</h2>
+        <p class="section-sub centered reveal reveal-d2">Experiencia real en sectores que conocemos a fondo.</p>
+      </div>
+      <div class="nichos-grid">
+        <div class="nicho-badge reveal">
+          <span class="nicho-emoji">🦷</span>
+          <span class="nicho-name">Odontología</span>
+        </div>
+        <div class="nicho-badge reveal reveal-d1">
+          <span class="nicho-emoji">🧠</span>
+          <span class="nicho-name">Psicología</span>
+        </div>
+        <div class="nicho-badge reveal reveal-d2">
+          <span class="nicho-emoji">💪</span>
+          <span class="nicho-name">Fitness</span>
+        </div>
+        <div class="nicho-badge reveal reveal-d3">
+          <span class="nicho-emoji">🌍</span>
+          <span class="nicho-name">Academias de idiomas</span>
+        </div>
+        <div class="nicho-badge reveal">
+          <span class="nicho-emoji">📦</span>
+          <span class="nicho-name">E-commerce</span>
+        </div>
+        <div class="nicho-badge reveal reveal-d1">
+          <span class="nicho-emoji">🚚</span>
+          <span class="nicho-name">Dropshipping</span>
+        </div>
+        <div class="nicho-badge reveal reveal-d2">
+          <span class="nicho-emoji">🎨</span>
+          <span class="nicho-name">Tatuaje y arte</span>
+        </div>
+        <div class="nicho-badge reveal reveal-d3">
+          <span class="nicho-emoji">📈</span>
+          <span class="nicho-name">Infoproductores</span>
+        </div>
+        <div class="nicho-badge reveal">
+          <span class="nicho-emoji">💬</span>
+          <span class="nicho-name">Cursos de ventas</span>
+        </div>
+        <div class="nicho-badge reveal reveal-d1">
+          <span class="nicho-emoji">🚗</span>
+          <span class="nicho-name">Movilidad</span>
+        </div>
+        <div class="nicho-badge reveal reveal-d2">
+          <span class="nicho-emoji">🍽️</span>
+          <span class="nicho-name">Restaurantes</span>
+        </div>
+        <div class="nicho-badge reveal reveal-d3">
+          <span class="nicho-emoji">🤖</span>
+          <span class="nicho-name">Automatización</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       3 — SOLUCION (Timeline / Proceso)
+  ============================================================ -->
+  <section class="solucion" id="solucion">
+    <div class="section-overlay" style="background: rgba(0,0,0,0.75)"></div>
+    <div class="container">
+      <div class="solucion-header">
+        <span class="section-label reveal">Como trabajamos</span>
+        <h2 class="section-title reveal reveal-d1">
+          Un proceso diseñado para<br /><em>darte resultados reales</em>
+        </h2>
+        <p class="section-sub centered reveal reveal-d2">
+          No lanzamos campañas y desaparecemos. Te acompañamos
+          paso a paso con un proceso claro, medible y adaptado a tu negocio.
+        </p>
+        <div class="divider"></div>
+      </div>
+
+      <div class="timeline">
+        <div class="tl-step reveal">
+          <div class="tl-dot"></div>
+          <p class="tl-label">Semana 1</p>
+          <h3 class="tl-title">Analisis profundo de tu negocio</h3>
+          <p class="tl-desc">
+            Estudiamos tu mercado, tu cliente ideal, tu competencia y tus numeros actuales.
+            Entendemos donde estas y hacia donde quieres ir para diseñar la estrategia
+            correcta desde el primer dia.
+          </p>
+        </div>
+        <div class="tl-step reveal">
+          <div class="tl-dot"></div>
+          <p class="tl-label">Semana 2</p>
+          <h3 class="tl-title">Reunion de feedback y estrategia personalizada</h3>
+          <p class="tl-desc">
+            Te presentamos el plan completo: estructura de campañas, copy,
+            creativos y presupuesto recomendado. Ajustamos todo contigo hasta
+            que estes 100% alineado con la estrategia.
+          </p>
+        </div>
+        <div class="tl-step reveal">
+          <div class="tl-dot"></div>
+          <p class="tl-label">Semana 3 en adelante</p>
+          <h3 class="tl-title">Lanzamiento y gestion continua</h3>
+          <p class="tl-desc">
+            Activamos las campañas y comenzamos la optimizacion diaria.
+            Recibiras reportes semanales claros donde entenderas exactamente
+            que esta pasando con tu dinero y que resultados estan llegando.
+          </p>
+        </div>
+      </div>
+
+      <div class="solucion-note reveal">
+        "No importa si nunca has pautado o si ya tienes experiencia
+        — adaptamos la estrategia a tu punto de partida."
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4 — DIFERENCIAL
+  ============================================================ -->
+  <section class="diferencial" id="diferencial">
+    <div class="container">
+      <div class="diferencial-header">
+        <span class="section-label reveal">¿Por que Ethereal?</span>
+        <h2 class="section-title reveal reveal-d1">
+          Lo que nos hace <em>diferentes</em>
+        </h2>
+        <p class="section-sub centered reveal reveal-d2">
+          No somos una agencia mas. Trabajamos con un numero selecto de negocios
+          porque creemos que los resultados reales requieren atencion real.
+        </p>
+      </div>
+
+      <div class="diferencial-body">
+        <div class="diff-grid">
+          <div class="diff-card reveal">
+            <span class="diff-icon">&#10022;</span>
+            <h3>Estrategia 100% personalizada</h3>
+            <p>
+              Sin planes genericos ni plantillas recicladas. Cada campaña se diseña
+              desde cero para tu negocio, tu mercado y tu audiencia especifica.
+            </p>
+          </div>
+          <div class="diff-card reveal reveal-d1">
+            <span class="diff-icon">&#10022;</span>
+            <h3>Reportes semanales claros</h3>
+            <p>
+              Sabras exactamente que pasa con tu dinero. Sin tecnicismos confusos,
+              sin datos que no entiendas — reportes que te dan claridad y confianza.
+            </p>
+          </div>
+          <div class="diff-card reveal reveal-d2">
+            <span class="diff-icon">&#10022;</span>
+            <h3>Equipo especializado completo</h3>
+            <p>
+              Detras de tus campañas hay un Media Buyer, Copywriter,
+              Data Analyst y Content Creator trabajando en conjunto para maximizar
+              cada peso que inviertes.
+            </p>
+          </div>
+          <div class="diff-card reveal reveal-d3">
+            <span class="diff-icon">&#10022;</span>
+            <h3>Garantia de resultados medibles</h3>
+            <p>
+              Prometemos resultados reales, no ventas vacias. Si no generamos
+              resultados medibles, no tiene sentido trabajar juntos — y somos
+              los primeros en decirtelo.
+            </p>
+          </div>
+        </div>
+
+        <div class="diferencial-photo reveal reveal-d2">
+          <img src="ethereal-assets/seccion-intermedia.png" alt="Mateo Agudelo — Ethereal Agency" />
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5 — GARANTIA
+  ============================================================ -->
+  <section class="prueba" id="garantia">
+    <div class="container">
+      <div class="prueba-inner">
+        <div class="prueba-badge reveal">Garantía · Sin letra pequeña</div>
+
+        <h2 class="prueba-title reveal reveal-d1">
+          Te damos <em>garantía</em>
+        </h2>
+
+        <p class="prueba-desc reveal reveal-d2">
+          Si en 30 días aplicando nuestro proceso completo no alcanzas
+          resultados medibles, seguimos trabajando contigo sin costo adicional
+          hasta conseguirlos — o te devolvemos tu dinero. Sin letra pequeña,
+          sin excusas.
+        </p>
+
+        <ul class="prueba-list reveal reveal-d2">
+          <li>
+            <span class="check">&#10003;</span>
+            30 días de garantía real sobre nuestro proceso completo
+          </li>
+          <li>
+            <span class="check">&#10003;</span>
+            Si no hay resultados medibles, seguimos sin cobrar hasta conseguirlos
+          </li>
+          <li>
+            <span class="check">&#10003;</span>
+            O te devolvemos tu dinero completamente
+          </li>
+          <li>
+            <span class="check">&#10003;</span>
+            Sin letra pequeña, sin condiciones ocultas, sin excusas
+          </li>
+        </ul>
+
+        <a href="https://calendly.com/aagudelosales/sesion-de-admision-ethereal-agency" target="_blank" rel="noopener" class="btn btn-gold reveal reveal-d3">
+          Quiero mi sesion gratuita
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6 — PRUEBA SOCIAL (Video)
+  ============================================================ -->
+  <section class="testimonios" id="testimonios">
+    <div class="container">
+      <div class="testimonios-header">
+        <span class="section-label reveal">Prueba social</span>
+        <h2 class="section-title reveal reveal-d1">
+          Lo que dicen <em>nuestros clientes</em>
+        </h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="video-wrapper reveal">
+        <video
+          controls
+          preload="metadata"
+          poster="ethereal-assets/logo.png"
+          playsinline
+        >
+          <source src="Testimonio.mp4" type="video/mp4" />
+          Tu navegador no soporta video HTML5.
+        </video>
+      </div>
+      <p class="video-caption reveal">Resultados reales de clientes reales.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       7 — APLICACION
+  ============================================================ -->
+  <section class="aplicacion" id="aplicar">
+    <div class="container">
+      <div class="aplicacion-header">
+        <span class="section-label reveal">Cupos limitados</span>
+        <h2 class="section-title reveal reveal-d1">
+          No trabajamos con <em>cualquiera</em>
+        </h2>
+        <p class="section-sub centered reveal reveal-d2">
+          Tenemos cupos limitados. Si quieres que tu negocio sea considerado,
+          llena este formulario y te contactamos nosotros.
+        </p>
+        <div class="divider"></div>
+      </div>
+
+      <form class="app-form" id="appForm" onsubmit="handleApplication(event)">
+
+        <div class="form-group reveal">
+          <label for="app-nombre">Nombre completo</label>
+          <input type="text" id="app-nombre" name="nombre" placeholder="Tu nombre completo" required />
+        </div>
+
+        <div class="form-group reveal">
+          <label for="app-email">Email</label>
+          <input type="email" id="app-email" name="email" placeholder="tucorreo@ejemplo.com" required />
+        </div>
+
+        <div class="form-group reveal">
+          <label for="app-whatsapp">WhatsApp</label>
+          <input type="text" id="app-whatsapp" name="whatsapp" placeholder="+57 300 000 0000" required />
+        </div>
+
+        <div class="form-group reveal">
+          <label for="app-nicho">Nicho de tu negocio</label>
+          <input type="text" id="app-nicho" name="nicho" placeholder="Ej: Academia de belleza, restaurante, ropa..." required />
+        </div>
+
+        <div class="form-group reveal">
+          <label for="app-etapa">¿En que etapa esta tu negocio?</label>
+          <select id="app-etapa" name="etapa" required>
+            <option value="" disabled selected>Selecciona una opcion</option>
+            <option value="Apenas estoy empezando (menos de 6 meses)">Apenas estoy empezando (menos de 6 meses)</option>
+            <option value="Tengo clientes pero quiero crecer (6 meses - 2 años)">Tengo clientes pero quiero crecer (6 meses - 2 años)</option>
+            <option value="Negocio establecido buscando escalar (mas de 2 años)">Negocio establecido buscando escalar (mas de 2 años)</option>
+          </select>
+        </div>
+
+        <div class="form-group reveal">
+          <p class="form-group-label">¿Has hecho publicidad en Meta Ads antes?</p>
+          <div class="radio-cards">
+            <input type="radio" id="ads-1" name="experiencia_ads" value="Nunca he pautado" required />
+            <label for="ads-1">Nunca he pautado</label>
+
+            <input type="radio" id="ads-2" name="experiencia_ads" value="Si, pero perdi dinero y no entendi por que" />
+            <label for="ads-2">Si, pero perdi dinero y no entendi por que</label>
+
+            <input type="radio" id="ads-3" name="experiencia_ads" value="Si, con resultados regulares" />
+            <label for="ads-3">Si, con resultados regulares</label>
+
+            <input type="radio" id="ads-4" name="experiencia_ads" value="Si, con buenos resultados pero quiero mejorarlo" />
+            <label for="ads-4">Si, con buenos resultados pero quiero mejorarlo</label>
+
+            <input type="radio" id="ads-5" name="experiencia_ads" value="Pauto actualmente pero quiero una agencia" />
+            <label for="ads-5">Pauto actualmente pero quiero una agencia</label>
+          </div>
+        </div>
+
+        <div class="form-group reveal">
+          <p class="form-group-label">¿Cuanto factura tu negocio al mes aproximadamente?</p>
+          <div class="radio-cards">
+            <input type="radio" id="rev-1" name="facturacion" value="Menos de $2.000.000 COP" required />
+            <label for="rev-1">Menos de $2.000.000 COP</label>
+
+            <input type="radio" id="rev-2" name="facturacion" value="Entre $2.000.000 y $5.000.000 COP" />
+            <label for="rev-2">Entre $2.000.000 y $5.000.000 COP</label>
+
+            <input type="radio" id="rev-3" name="facturacion" value="Entre $5.000.000 y $15.000.000 COP" />
+            <label for="rev-3">Entre $5.000.000 y $15.000.000 COP</label>
+
+            <input type="radio" id="rev-4" name="facturacion" value="Entre $15.000.000 y $40.000.000 COP" />
+            <label for="rev-4">Entre $15.000.000 y $40.000.000 COP</label>
+
+            <input type="radio" id="rev-5" name="facturacion" value="Mas de $40.000.000 COP" />
+            <label for="rev-5">Mas de $40.000.000 COP</label>
+          </div>
+        </div>
+
+        <p class="form-legal">
+          Al enviar este formulario aceptas nuestra
+          <a href="Terminos_y_Condiciones_Ethereal_Agency.pdf" target="_blank" rel="noopener">
+            Política de Privacidad y Tratamiento de Datos
+          </a>
+          , conforme a la Ley 1581 de 2012.
+        </p>
+        <button type="submit" class="form-submit reveal">Quiero aplicar &rarr;</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       8 — CTA FINAL
+  ============================================================ -->
+  <section class="cta-final" id="contacto">
+    <div class="section-overlay" style="background: rgba(0,0,0,0.65)"></div>
+    <div class="container">
+      <div class="cta-final-header">
+        <span class="section-label reveal">Da el siguiente paso</span>
+        <h2 class="section-title reveal reveal-d1">
+          Tu negocio merece crecer.<br />
+          <em>Hablemos.</em>
+        </h2>
+        <p class="reveal reveal-d2">
+          Elige como prefieres conectar con nosotros.
+          Sin presion, sin compromiso — solo una conversacion
+          honesta sobre tu negocio.
+        </p>
+      </div>
+
+      <div class="cta-cards">
+        <div class="cta-card featured reveal">
+          <div class="cta-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <h3>Agendar llamada</h3>
+          <p>
+            Sesion estrategica gratuita de 30 minutos. Analizamos tu
+            situacion y te decimos honestamente si podemos ayudarte.
+          </p>
+          <a href="https://calendly.com/aagudelosales/sesion-de-admision-ethereal-agency" target="_blank" rel="noopener" class="btn btn-gold">Agendar ahora</a>
+        </div>
+
+        <div class="cta-card reveal reveal-d1">
+          <div class="cta-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          </div>
+          <h3>WhatsApp</h3>
+          <p>
+            ¿Prefieres escribirnos directamente?
+            Respondemos en menos de 2 horas en dias habiles.
+          </p>
+          <a href="https://wa.me/573187855875?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20c%C3%B3mo%20Ethereal%20Agency%20puede%20ayudar%20a%20mi%20negocio" target="_blank" rel="noopener" class="btn btn-wa">Escribir ahora</a>
+        </div>
+
+        <div class="cta-card reveal reveal-d2">
+          <div class="cta-card-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#C9A84C" stroke-width="1.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <h3>Email</h3>
+          <p>
+            Cuentanos sobre tu negocio y te responderemos
+            con una propuesta personalizada.
+          </p>
+          <a href="mailto:aagudelosales@gmail.com?subject=Quiero%20saber%20m%C3%A1s%20sobre%20Ethereal%20Agency" class="btn btn-outline">Enviar email</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
+  <footer>
+    <div class="container">
+      <div class="footer-logo">
+        <img src="ethereal-assets/logo.png" alt="Ethereal Agency" />
+      </div>
+      <div class="footer-links">
+        <a href="https://calendly.com/aagudelosales/sesion-de-admision-ethereal-agency" target="_blank" rel="noopener">Agendar sesion</a>
+        <a href="https://wa.me/573187855875" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="mailto:aagudelosales@gmail.com">Email</a>
+        <a href="https://instagram.com/teo_aagudelo" target="_blank" rel="noopener">@teo_aagudelo</a>
+        <a href="Terminos_y_Condiciones_Ethereal_Agency.pdf" target="_blank" rel="noopener">Política de Privacidad</a>
+      </div>
+      <p class="footer-copy">&copy; 2026 Ethereal Agency. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       FLOATING WHATSAPP
+  ============================================================ -->
+  <div class="wa-float-wrapper">
+    <span class="wa-label">¿Tienes preguntas?</span>
+    <a href="https://wa.me/573187855875?text=Hola%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20Ethereal%20Agency" target="_blank" rel="noopener" class="wa-float" title="Chatea con nosotros por WhatsApp">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+  </div>
+
+  <!-- ============================================================
+       SCRIPTS
+  ============================================================ -->
+  <script>
+    // Sticky nav effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    // Scroll reveal (Intersection Observer)
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // Application form → mailto
+    function handleApplication(e) {
+      e.preventDefault();
+      const f = e.target;
+      const nombre   = f.nombre.value.trim();
+      const email    = f.email.value.trim();
+      const whatsapp = f.whatsapp.value.trim();
+      const nicho    = f.nicho.value.trim();
+      const etapa    = f.etapa.value;
+
+      const adsEl = f.querySelector('input[name="experiencia_ads"]:checked');
+      const revEl = f.querySelector('input[name="facturacion"]:checked');
+
+      if (!adsEl || !revEl) {
+        alert('Por favor completa todas las preguntas antes de enviar.');
+        return;
+      }
+
+      const experiencia = adsEl.value;
+      const facturacion = revEl.value;
+
+      const subject = encodeURIComponent('Nueva aplicacion — ' + nombre);
+      const body = encodeURIComponent(
+        'NUEVA APLICACION — ETHEREAL AGENCY\n' +
+        '══════════════════════════════════\n\n' +
+        'Nombre: ' + nombre + '\n' +
+        'Email: ' + email + '\n' +
+        'WhatsApp: ' + whatsapp + '\n' +
+        'Nicho: ' + nicho + '\n' +
+        'Etapa del negocio: ' + etapa + '\n' +
+        'Experiencia en Meta Ads: ' + experiencia + '\n' +
+        'Facturacion mensual: ' + facturacion + '\n'
+      );
+
+      window.location.href = 'mailto:aagudelosales@gmail.com?subject=' + subject + '&body=' + body;
+    }
+  </script>
+</body>
+</html>

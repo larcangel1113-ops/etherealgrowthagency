@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx --version)",
+      "Bash(php --version)",
+      "Bash(start \"\" \"C:\\\\Users\\\\andre\\\\Desktop\\\\Mateo\\\\Ethereal\\\\Landing Page Ethereal\\\\index.html\")",
+      "Bash(mv \"Hero.jpg\" \"hero.jpg\")",
+      "Bash(mv \"Logo.jpeg\" \"logo.jpeg\")",
+      "Bash(mv \"Portada principal.png\" \"portada-principal.png\")",
+      "Bash(mv \"Portada o fondo 2.png\" \"portada-fondo-2.png\")",
+      "Bash(mv \"Imagen de parte de problemas.png\" \"imagen-problemas.png\")",
+      "mcp__playwright__browser_navigate",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://127.0.0.1:5500/index.html)",
+      "Bash(npx --yes serve -l 5500 .)",
+      "Bash(mv hero.jpg hero.png)",
+      "Bash(mv logo.jpeg logo.png)",
+      "Bash(mv sobre-mi.jpeg sobre-mi.png)",
+      "Bash(mv seccion-intermedia.jpg seccion-intermedia.png)"
+    ]
+  }
+}
