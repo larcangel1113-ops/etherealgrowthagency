@@ -8,6 +8,7 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'AW-18323093136');
+    gtag('config', 'AW-18324176788');
   </script>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/png" href="Favicon.png" sizes="32x32" />
@@ -2185,9 +2186,14 @@
 
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-    // Application form → mailto
+    // Application form → FormSubmit (AJAX). La conversión de Google Ads se
+    // dispara únicamente tras confirmación de envío exitoso, una sola vez.
+    let applicationSent = false;
+
     function handleApplication(e) {
       e.preventDefault();
+      if (applicationSent) return;
+
       const f = e.target;
       const nombre   = f.nombre.value.trim();
       const email    = f.email.value.trim();
@@ -2206,20 +2212,48 @@
       const experiencia = adsEl.value;
       const facturacion = revEl.value;
 
-      const subject = encodeURIComponent('Nueva aplicacion — ' + nombre);
-      const body = encodeURIComponent(
-        'NUEVA APLICACION — ETHEREAL AGENCY\n' +
-        '══════════════════════════════════\n\n' +
-        'Nombre: ' + nombre + '\n' +
-        'Email: ' + email + '\n' +
-        'WhatsApp: ' + whatsapp + '\n' +
-        'Nicho: ' + nicho + '\n' +
-        'Etapa del negocio: ' + etapa + '\n' +
-        'Experiencia en Meta Ads: ' + experiencia + '\n' +
-        'Facturacion mensual: ' + facturacion + '\n'
-      );
+      const btn = f.querySelector('.form-submit');
+      const btnText = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Enviando…';
 
-      window.location.href = 'mailto:aagudelosales@gmail.com?subject=' + subject + '&body=' + body;
+      fetch('https://formsubmit.co/ajax/aagudelosales@gmail.com', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          _subject: 'Nueva aplicacion — ' + nombre,
+          _template: 'table',
+          _captcha: 'false',
+          _replyto: email,
+          'Nombre': nombre,
+          'Email': email,
+          'WhatsApp': whatsapp,
+          'Nicho': nicho,
+          'Etapa del negocio': etapa,
+          'Experiencia en Meta Ads': experiencia,
+          'Facturacion mensual': facturacion
+        })
+      })
+      .then(res => res.json().then(data => ({ ok: res.ok, data })))
+      .then(({ ok, data }) => {
+        if (!ok || String(data.success) !== 'true') {
+          throw new Error((data && data.message) || 'Error al enviar');
+        }
+        applicationSent = true;
+        // Event snippet for Envío de formulario para clientes potenciales conversion page
+        gtag('event', 'conversion', {
+            'send_to': 'AW-18324176788/ACVYCPDm6dMcEJT_0qFE',
+            'value': 1.0,
+            'currency': 'COP'
+        });
+        f.reset();
+        btn.textContent = '✓ Aplicación enviada — te contactaremos pronto';
+      })
+      .catch(() => {
+        btn.disabled = false;
+        btn.textContent = btnText;
+        alert('Hubo un problema al enviar tu aplicación. Por favor intenta de nuevo en unos minutos.');
+      });
     }
   </script>
 </body>
