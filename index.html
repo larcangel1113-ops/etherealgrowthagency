@@ -16,8 +16,8 @@
   <link rel="shortcut icon" href="Favicon.png" />
   <link rel="apple-touch-icon" href="Favicon.png" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ethereal Agency — Meta Ads Premium para Negocios Latinos</title>
-  <meta name="description" content="Ethereal Agency: gestión premium de Meta Ads para negocios latinos. Estrategia personalizada, reportes semanales y resultados medibles." />
+  <title>Ethereal Agency — Publicidad Digital, Contenido e Inteligencia Artificial</title>
+  <meta name="description" content="Ethereal Agency: agencia de marketing digital e inteligencia artificial desde Medellín, Colombia, para el mundo. Publicidad en Meta, TikTok y Google Ads, email marketing, producción de contenido, contenido orgánico y automatizaciones con IA." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -238,6 +238,10 @@
     }
     .hero-photo img {
       width: 100%;
+      /* Recorte: quita el fondo vacío de arriba y deja ver brazo y reloj */
+      aspect-ratio: 5 / 7;
+      object-fit: cover;
+      object-position: center bottom;
       border: 1px solid var(--gold);
       box-shadow: 0 24px 80px rgba(0,0,0,0.6), 0 0 40px rgba(201,168,76,0.08);
       display: block;
@@ -317,6 +321,49 @@
       gap: 16px;
       justify-content: flex-start;
     }
+
+    .hero-platforms {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+      margin: -16px 0 40px;
+    }
+    .hero-platforms-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-right: 4px;
+    }
+    .hero-platform {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 16px;
+      background: rgba(10,10,10,0.55);
+      border: 1px solid rgba(245,243,238,0.18);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--white);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+    }
+    .hero-platform svg { width: 26px; height: 24px; flex-shrink: 0; }
+
+    .hero-location {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 32px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--white-dim);
+    }
+    .hero-location svg { color: var(--gold); flex-shrink: 0; }
 
     .hero-scroll {
       position: absolute;
@@ -617,6 +664,27 @@
       margin-bottom: 6px;
     }
 
+    .servicio-link {
+      margin-top: auto;
+      padding-top: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .servicio-link:hover { color: var(--gold-light); }
+
+    /* Contenedor oculto con los degradados compartidos de los diamantes */
+    .svg-defs {
+      position: absolute;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+    }
+
     .servicios-cta {
       text-align: center;
       padding: 40px 24px;
@@ -629,6 +697,249 @@
       color: var(--white);
       margin-bottom: 22px;
       font-style: italic;
+    }
+
+    /* ================================================================
+       INTELIGENCIA ARTIFICIAL — SERVICIOS ESTRELLA
+    ================================================================ */
+    .ia {
+      padding: 120px 0;
+      background:
+        radial-gradient(ellipse 60% 40% at 50% 0%, rgba(201,168,76,0.07) 0%, transparent 70%),
+        var(--black-2);
+      position: relative;
+      overflow: hidden;
+    }
+    .ia::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .ia-header { text-align: center; margin-bottom: 64px; }
+
+    .ia-intro {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 64px;
+      align-items: center;
+      margin-bottom: 72px;
+    }
+    .ia-photo img {
+      width: 100%;
+      border: 1px solid var(--gold);
+      box-shadow: 0 24px 70px rgba(0,0,0,0.6), 0 0 40px rgba(201,168,76,0.1);
+    }
+    .ia-intro-text h3 {
+      font-family: var(--serif);
+      font-size: clamp(26px, 3vw, 38px);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .ia-intro-text > p {
+      font-size: 15px;
+      color: var(--white-dim);
+      line-height: 1.9;
+      margin-bottom: 32px;
+    }
+    .ia-intro-text .ia-index-label {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .ia-index {
+      list-style: none;
+      border-top: 1px solid rgba(201,168,76,0.15);
+    }
+    .ia-index li { border-bottom: 1px solid rgba(201,168,76,0.15); }
+    .ia-index a {
+      display: flex;
+      align-items: baseline;
+      gap: 18px;
+      padding: 14px 4px;
+      font-family: var(--serif);
+      font-size: 20px;
+      color: var(--white);
+      text-decoration: none;
+      transition: color 0.3s, padding-left 0.3s var(--ease);
+    }
+    .ia-index a:hover { color: var(--gold); padding-left: 10px; }
+    .ia-index span {
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: var(--gold);
+    }
+
+    .ia-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-bottom: 64px;
+    }
+    .ia-card {
+      background: var(--black);
+      border: 1px solid rgba(201,168,76,0.15);
+      padding: 44px 36px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      position: relative;
+      transition: all 0.4s var(--ease);
+    }
+    .ia-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s var(--ease);
+    }
+    .ia-card:hover {
+      border-color: rgba(201,168,76,0.45);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .ia-card:hover::before { transform: scaleX(1); }
+
+    .ia-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .ia-icon {
+      width: 56px;
+      height: 56px;
+      border: 1px solid rgba(201,168,76,0.3);
+      background: rgba(201,168,76,0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .ia-icon svg { width: 26px; height: 26px; stroke: var(--gold); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    .ia-num {
+      font-family: var(--serif);
+      font-size: 48px;
+      line-height: 1;
+      color: rgba(201,168,76,0.3);
+    }
+    .ia-card h3 {
+      font-family: var(--serif);
+      font-size: 28px;
+      font-weight: 500;
+      line-height: 1.2;
+    }
+    .ia-block h4,
+    .ia-benefit h4 {
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .ia-block p {
+      font-size: 14px;
+      color: var(--white-dim);
+      line-height: 1.75;
+    }
+
+    /* Flujo paso a paso (ej. Cliente → Agente IA → ...) */
+    .ia-flow {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 26px;
+      margin-top: 14px;
+    }
+    .ia-flow li {
+      position: relative;
+      font-size: 12px;
+      color: var(--white);
+      border: 1px solid rgba(201,168,76,0.3);
+      background: rgba(201,168,76,0.06);
+      padding: 6px 12px;
+      line-height: 1.4;
+    }
+    .ia-flow li:not(:last-child)::after {
+      content: '→';
+      position: absolute;
+      right: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--gold);
+      font-size: 13px;
+    }
+    .ia-flow li.optional {
+      border-style: dashed;
+      background: transparent;
+      color: var(--white-dim);
+    }
+
+    .ia-chips {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .ia-chips li {
+      font-size: 12px;
+      color: var(--white-dim);
+      border: 1px solid rgba(201,168,76,0.2);
+      padding: 5px 12px;
+    }
+
+    .ia-benefit {
+      margin-top: auto;
+      padding-top: 22px;
+      border-top: 1px solid rgba(201,168,76,0.15);
+    }
+    .ia-benefit ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .ia-benefit li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--white);
+      line-height: 1.55;
+    }
+    .ia-benefit li::before {
+      content: '\2713';
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .ia-cta {
+      text-align: center;
+      padding: 40px 24px 0;
+      border-top: 1px solid rgba(201,168,76,0.12);
+    }
+    .ia-cta p {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-style: italic;
+      margin-bottom: 22px;
+    }
+    .ia-cta-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
     }
 
     /* ================================================================
@@ -691,11 +1002,14 @@
       text-align: center;
       margin-bottom: 56px;
     }
+    /* Flex centrado: si la última fila queda incompleta, se centra */
     .nichos-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
       gap: 16px;
     }
+    .nichos-grid .nicho-badge { flex: 0 0 calc((100% - 48px) / 4); }
     .nicho-badge {
       background: #1a1a1a;
       border: 1px solid rgba(201,168,76,0.2);
@@ -721,6 +1035,46 @@
       font-weight: 500;
       color: var(--white);
       letter-spacing: 0.3px;
+    }
+
+    /* Presencia global (Medellín → mundo) */
+    .global-band {
+      margin-top: 72px;
+      text-align: center;
+    }
+    .global-band h3 {
+      font-family: var(--serif);
+      font-size: clamp(26px, 3.2vw, 38px);
+      font-weight: 400;
+      margin-bottom: 32px;
+    }
+    .global-band h3 em { font-style: italic; color: var(--gold); }
+    .global-items {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid rgba(201,168,76,0.2);
+      background: rgba(201,168,76,0.03);
+    }
+    .global-item {
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .global-item + .global-item { border-left: 1px solid rgba(201,168,76,0.2); }
+    .global-kicker {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .global-item strong {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--white);
+      line-height: 1.3;
     }
 
     /* ================================================================
@@ -982,24 +1336,37 @@
     }
     .testimonios-header { text-align: center; margin-bottom: 56px; }
 
-    .video-wrapper {
-      max-width: 800px;
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1000px;
       margin: 0 auto;
+    }
+    .video-wrapper {
       position: relative;
       border: 1px solid rgba(201,168,76,0.2);
       background: var(--black-3);
       overflow: hidden;
+      transition: border-color 0.4s var(--ease), box-shadow 0.4s var(--ease);
+    }
+    .video-wrapper:hover {
+      border-color: rgba(201,168,76,0.5);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.5);
     }
     .video-wrapper::before {
       content: '';
       position: absolute;
-      top: -1px; left: 60px; right: 60px;
+      top: -1px; left: 40px; right: 40px;
       height: 2px;
       background: linear-gradient(90deg, transparent, var(--gold), transparent);
       z-index: 2;
     }
     .video-wrapper video {
       width: 100%;
+      aspect-ratio: 9 / 16;
+      object-fit: cover;
+      background: #000;
       display: block;
     }
     .video-caption {
@@ -1257,6 +1624,12 @@
       transition: color 0.3s;
     }
     .footer-links a:hover { color: var(--gold); }
+    .footer-location {
+      font-size: 12px;
+      color: var(--white-dim);
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
     .footer-copy {
       font-size: 11px;
       color: rgba(245,243,238,0.25);
@@ -1342,12 +1715,25 @@
       }
       .hero-text .hero-sub { margin: 0 auto 48px; }
       .hero-ctas { justify-content: center; }
+      .hero-platforms { justify-content: center; }
 
       /* Grids */
       .pain-grid,
       .diff-grid { grid-template-columns: 1fr; }
       .cta-cards { grid-template-columns: 1fr; }
-      .servicios-grid { grid-template-columns: 1fr; }
+      .servicios-grid { grid-template-columns: 1fr; gap: 36px; }
+
+      /* IA */
+      .ia-intro {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .ia-photo { max-width: 320px; margin: 0 auto; }
+      .ia-grid { grid-template-columns: 1fr; }
+
+      /* Presencia global */
+      .global-items { grid-template-columns: 1fr; }
+      .global-item + .global-item { border-left: none; border-top: 1px solid rgba(201,168,76,0.2); }
 
       /* Sobre mí */
       .sobre-mi-layout {
@@ -1357,7 +1743,24 @@
       .sobre-mi-photo { max-width: 320px; margin: 0 auto; }
 
       /* Nichos */
-      .nichos-grid { grid-template-columns: repeat(2, 1fr); }
+      .nichos-grid .nicho-badge { flex-basis: calc((100% - 16px) / 2); }
+
+      /* Testimonios: carrusel horizontal deslizable */
+      .video-grid {
+        display: flex;
+        gap: 16px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        margin: 0 -24px;
+        padding: 0 24px 12px;
+        scrollbar-width: thin;
+        scrollbar-color: var(--gold-dark) transparent;
+      }
+      .video-grid .video-wrapper {
+        flex: 0 0 min(78%, 320px);
+        scroll-snap-align: center;
+      }
 
       /* Diferencial */
       .diferencial-body { flex-direction: column; }
@@ -1379,10 +1782,50 @@
       .frase-item { font-size: clamp(18px, 5vw, 26px); }
       .wa-label { font-size: 12px; padding: 7px 11px; }
       .nichos-grid { gap: 12px; }
+      .nichos-grid .nicho-badge { flex-basis: calc((100% - 12px) / 2); }
+      .hero-location { font-size: 11px; letter-spacing: 1px; }
+      .hero-platforms-label { width: 100%; text-align: center; margin: 0 0 2px; }
+      .hero-platform { padding: 8px 12px; font-size: 13px; gap: 8px; }
+      .hero-platform svg { width: 22px; height: 20px; }
+      .ia-card { padding: 36px 24px 32px; }
+      .ia-card h3 { font-size: 24px; }
+      .ia-cta-btns { flex-direction: column; align-items: center; }
     }
   </style>
 </head>
 <body>
+
+  <!-- Logos de plataformas (se reutilizan con <use href="#logo-...">) -->
+  <svg class="svg-defs" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="metaGrad1" x1="13.88%" y1="55.93%" x2="89.14%" y2="58.69%">
+        <stop stop-color="#0064E1" offset="0%"/>
+        <stop stop-color="#0064E1" offset="40%"/>
+        <stop stop-color="#0073EE" offset="83%"/>
+        <stop stop-color="#0082FB" offset="100%"/>
+      </linearGradient>
+      <linearGradient id="metaGrad2" x1="54.32%" y1="82.78%" x2="54.32%" y2="39.31%">
+        <stop stop-color="#0082FB" offset="0%"/>
+        <stop stop-color="#0064E0" offset="100%"/>
+      </linearGradient>
+    </defs>
+    <symbol id="logo-google-ads" viewBox="0 0 256 230">
+      <path d="M5.888,166.405103 L90.88,20.9 C101.676138,27.2558621 156.115862,57.3844138 164.908138,63.1135172 L79.9161379,208.627448 C70.6206897,220.906621 -5.888,185.040138 5.888,166.396276 L5.888,166.405103 Z" fill="#FBBC04"/>
+      <path d="M250.084224,166.401789 L165.092224,20.9055131 C153.210293,1.13172 127.619121,-6.05393517 106.600638,5.62496138 C85.582155,17.3038579 79.182155,42.4624786 91.0640861,63.1190303 L176.056086,208.632961 C187.938017,228.397927 213.52919,235.583582 234.547672,223.904686 C254.648086,212.225789 261.966155,186.175582 250.084224,166.419444 L250.084224,166.401789 Z" fill="#4285F4"/>
+      <ellipse fill="#34A853" cx="42.6637241" cy="187.924414" rx="42.6637241" ry="41.6044138"/>
+    </symbol>
+    <symbol id="logo-meta" viewBox="0 0 256 171">
+      <path d="M27.6511337,112.135763 C27.6511337,121.910697 29.7966337,129.415496 32.6009181,133.955766 C36.2776464,139.902629 41.7615802,142.422034 47.3523439,142.422034 C54.5633607,142.422034 61.1601057,140.632633 73.8728613,123.050216 C84.0573098,108.957574 96.0578662,89.1762415 104.132425,76.775073 L117.806649,55.7651968 C127.305606,41.1740159 138.300181,24.9536792 150.906107,13.9591042 C161.197385,4.98539435 172.29879,0 183.471415,0 C202.228961,0 220.096258,10.8699402 233.770483,31.2566421 C248.735568,53.5840868 256,81.7070524 256,110.72917 C256,127.982195 252.599249,140.659341 246.81263,150.674642 C241.221867,160.360551 230.325219,170.037557 211.994992,170.037557 L211.994992,142.422034 C227.690082,142.422034 231.607178,128 231.607178,111.494784 C231.607178,87.9744053 226.123244,61.8723049 214.042565,43.2215885 C205.469467,29.9924885 194.35916,21.9090277 182.136041,21.9090277 C168.915844,21.9090277 158.277368,31.8798164 146.321324,49.6580887 C139.964946,59.1036305 133.439421,70.61455 126.112672,83.6032828 L118.047016,97.8917791 C101.844485,126.620114 97.7404368,133.163444 89.639171,143.962164 C75.4396995,162.871053 63.3145083,170.037557 47.3523439,170.037557 C28.4167478,170.037557 16.4428989,161.838364 9.02712477,149.481708 C2.97343163,139.412992 0,126.201697 0,111.147587 L27.6511337,112.135763 Z" fill="#0081FB"/>
+      <path d="M21.8021978,33.2062874 C34.4793434,13.665322 52.7739602,0 73.7571289,0 C85.9090277,0 97.9897065,3.59660593 110.604535,13.8967868 C124.403394,25.1584365 139.110307,43.702323 157.458339,74.2645709 L164.037279,85.2324384 C179.919321,111.690638 188.955348,125.302546 194.243427,131.721241 C201.04493,139.964946 205.807762,142.422034 211.994992,142.422034 C227.690082,142.422034 231.607178,128 231.607178,111.494784 L256,110.72917 C256,127.982195 252.599249,140.659341 246.81263,150.674642 C241.221867,160.360551 230.325219,170.037557 211.994992,170.037557 C200.599805,170.037557 190.504382,167.562665 179.340659,157.03102 C170.758659,148.947559 160.725553,134.587843 153.007094,121.679232 L130.047573,83.3273056 C118.527751,64.0801224 107.960495,49.7293087 101.844485,43.230491 C95.2655446,36.2420364 86.8081792,27.802476 73.3120045,27.802476 C62.3886493,27.802476 53.1122548,35.4675198 45.3492836,47.192099 L21.8021978,33.2062874 Z" fill="url(#metaGrad1)"/>
+      <path d="M73.3120045,27.802476 C62.3886493,27.802476 53.1122548,35.4675198 45.3492836,47.192099 C34.3725136,63.7596328 27.6511337,88.4373348 27.6511337,112.135763 C27.6511337,121.910697 29.7966337,129.415496 32.6009181,133.955766 L9.02712477,149.481708 C2.97343163,139.412992 0,126.201697 0,111.147587 C0,83.7724301 7.51370149,55.2399499 21.8021978,33.2062874 C34.4793434,13.665322 52.7739602,0 73.7571289,0 L73.3120045,27.802476 Z" fill="url(#metaGrad2)"/>
+    </symbol>
+    <!-- Versión para fondo oscuro: la nota central va en blanco -->
+    <symbol id="logo-tiktok" viewBox="0 0 256 290">
+      <path d="M189.720224,104.421475 C208.398189,117.766281 231.279538,125.618095 255.992548,125.618095 L255.992548,78.0872726 C251.315611,78.0882654 246.650588,77.6008156 242.074913,76.6318726 L242.074913,114.045382 C217.363889,114.045382 194.485518,106.193568 175.80259,92.8497541 L175.80259,189.846306 C175.80259,238.368905 136.447224,277.701437 87.902784,277.701437 C69.7897057,277.701437 52.9543216,272.228299 38.9691786,262.841664 C54.9309256,279.153859 77.1908018,289.273158 101.81744,289.273158 C150.364858,289.273158 189.72221,249.940626 189.72221,201.416041 L189.72221,104.421475 L189.720224,104.421475 Z M206.889179,56.4687254 C197.343701,46.0456391 191.076347,32.5757434 189.720224,17.6842019 L189.720224,11.5707278 L176.531282,11.5707278 C179.851103,30.497877 191.174632,46.6681056 206.889179,56.4687254 L206.889179,56.4687254 Z M69.6735517,225.606854 C64.3403943,218.617757 61.4583846,210.068027 61.4712906,201.277053 C61.4712906,179.084685 79.472186,161.090739 101.680438,161.090739 C105.819294,161.089747 109.933331,161.723134 113.877603,162.974023 L113.877603,114.380938 C109.268175,113.749536 104.616057,113.481488 99.9659254,113.579773 L99.9659254,151.402303 C96.0186741,150.151413 91.9026521,149.516041 87.7628035,149.520012 C65.5545513,149.520012 47.5546487,167.511972 47.5546487,189.707318 C47.5546487,205.401018 56.552118,218.98806 69.6735517,225.606854 Z" fill="#FF004F"/>
+      <path d="M175.80259,92.8487613 C194.485518,106.192575 217.363889,114.044389 242.074913,114.044389 L242.074913,76.6308799 C228.281375,73.6942679 216.070311,66.4897401 206.889179,56.4687254 C191.173639,46.6671128 179.851103,30.4968842 176.531282,11.5707278 L141.8876,11.5707278 L141.8876,201.414056 C141.809172,223.545865 123.839052,241.466346 101.678453,241.466346 C88.6195635,241.466346 77.0180599,235.24466 69.6705734,225.606854 C56.5501325,218.98806 47.5526631,205.400025 47.5526631,189.708311 C47.5526631,167.51495 65.5525657,149.521004 87.760818,149.521004 C92.0158278,149.521004 96.1169583,150.183182 99.9639399,151.403295 L99.9639399,113.580765 C52.272289,114.565593 13.9166419,153.513923 13.9166419,201.415048 C13.9166419,225.326893 23.4680767,247.004014 38.9701714,262.842657 C52.9553144,272.228299 69.7906985,277.70243 87.9037768,277.70243 C136.449209,277.70243 175.803582,238.367912 175.803582,189.846306 L175.803582,92.8487613 L175.80259,92.8487613 Z" fill="#FFFFFF"/>
+      <path d="M242.074913,76.6308799 L242.074913,66.5145593 C229.636505,66.5334219 217.442318,63.0517795 206.889179,56.4677326 C216.231139,66.6902795 228.532545,73.7389425 242.074913,76.6308799 Z M176.531282,11.5707278 C176.214589,9.76190185 175.971361,7.9411627 175.80259,6.11347418 L175.80259,0 L127.968973,0 L127.968973,189.845313 C127.89253,211.974144 109.923403,229.894625 87.760818,229.894625 C81.2542071,229.894625 75.1109499,228.350869 69.6705734,225.607847 C77.0180599,235.24466 88.6195635,241.465353 101.678453,241.465353 C123.837066,241.465353 141.810164,223.546857 141.8876,201.415048 L141.8876,11.5707278 L176.531282,11.5707278 Z M99.9659254,113.580765 L99.9659254,102.811203 C95.9690357,102.265179 91.9393845,101.991175 87.9047695,101.99315 C39.3553659,101.99315 0,141.326686 0,189.845313 C0,220.263769 15.4673478,247.071522 38.9711641,262.840672 C23.4690694,247.003021 13.9176347,225.324907 13.9176347,201.414056 C13.9176347,153.513923 52.272289,114.565593 99.9659254,113.580765 Z" fill="#00F2EA"/>
+    </symbol>
+  </svg>
 
   <!-- ============================================================
        NAVBAR
@@ -1407,14 +1850,14 @@
       <!-- Foto primero en el DOM → aparece arriba en móvil, derecha en desktop -->
       <div class="hero-photo reveal reveal-d3">
         <div class="hero-photo-badge">
-          <span>Mateo Agudelo &mdash; Fundador de Ethereal Agency</span>
+          <span>Mateo Agudelo &mdash; CEO de Ethereal Agency</span>
         </div>
-        <img src="ethereal-assets/hero.png" alt="Mateo Agudelo — Fundador de Ethereal Agency" />
+        <img src="ethereal-assets/ceo-mateo.jpg" alt="Mateo Agudelo — CEO de Ethereal Agency" />
       </div>
 
       <div class="hero-text">
         <div class="hero-eyebrow reveal">
-          <span>Meta Ads Premium para Negocios Latinos</span>
+          <span>Marketing Digital e IA para Negocios</span>
         </div>
 
         <h1 class="reveal reveal-d1">
@@ -1423,10 +1866,24 @@
         </h1>
 
         <p class="hero-sub reveal reveal-d2">
-          Creamos un sistema de adquisicion de clientes predecible para tu negocio
-          con Meta Ads. Sin promesas vacias, sin agencias genericas
-          — solo estrategia real y resultados que puedes medir.
+          Creamos un sistema de adquisición de clientes predecible para tu negocio
+          con publicidad en Meta, TikTok y Google Ads, contenido que conecta y
+          automatizaciones con inteligencia artificial. Sin promesas vacías, sin agencias
+          genéricas — solo estrategia real y resultados que puedes medir.
         </p>
+
+        <div class="hero-platforms reveal reveal-d2">
+          <span class="hero-platforms-label">Pautamos en</span>
+          <span class="hero-platform">
+            <svg aria-hidden="true"><use href="#logo-google-ads"/></svg>Google Ads
+          </span>
+          <span class="hero-platform">
+            <svg aria-hidden="true"><use href="#logo-meta"/></svg>Meta Ads
+          </span>
+          <span class="hero-platform">
+            <svg aria-hidden="true"><use href="#logo-tiktok"/></svg>TikTok Ads
+          </span>
+        </div>
 
         <div class="hero-ctas reveal reveal-d3">
           <a href="https://calendly.com/aagudelosales/sesion-de-admision-ethereal-agency" target="_blank" rel="noopener" class="btn btn-gold">
@@ -1438,6 +1895,11 @@
             Escribenos por WhatsApp
           </a>
         </div>
+
+        <p class="hero-location reveal reveal-d4">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Medellín, Colombia &middot; Atendemos negocios en todo el mundo
+        </p>
       </div>
 
     </div>
@@ -1526,62 +1988,117 @@
   </section>
 
   <!-- ============================================================
+       2.2 — PRUEBA SOCIAL (Videos)
+  ============================================================ -->
+  <section class="testimonios" id="testimonios">
+    <div class="container">
+      <div class="testimonios-header">
+        <span class="section-label reveal">Prueba social</span>
+        <h2 class="section-title reveal reveal-d1">
+          Lo que dicen <em>nuestros clientes</em>
+        </h2>
+        <div class="divider"></div>
+      </div>
+
+      <div class="video-grid">
+        <div class="video-wrapper reveal">
+          <video controls preload="metadata" poster="ethereal-assets/testimonio-1-poster.jpg" playsinline>
+            <source src="Testimonio.mp4" type="video/mp4" />
+            Tu navegador no soporta video HTML5.
+          </video>
+        </div>
+        <div class="video-wrapper reveal reveal-d1">
+          <video controls preload="metadata" poster="ethereal-assets/testimonio-2-poster.jpg" playsinline>
+            <source src="Testimonio%202.mp4" type="video/mp4" />
+            Tu navegador no soporta video HTML5.
+          </video>
+        </div>
+        <div class="video-wrapper reveal reveal-d2">
+          <video controls preload="metadata" poster="ethereal-assets/testimonio-3-poster.jpg" playsinline>
+            <source src="Testimonio%203.mp4" type="video/mp4" />
+            Tu navegador no soporta video HTML5.
+          </video>
+        </div>
+      </div>
+      <p class="video-caption reveal">Resultados reales de clientes reales.</p>
+    </div>
+  </section>
+
+  <!-- ============================================================
        2.5 — SERVICIOS
   ============================================================ -->
   <section class="servicios" id="servicios">
+    <!-- Degradados compartidos por los diamantes de las tarjetas -->
+    <svg class="svg-defs" aria-hidden="true" focusable="false">
+      <defs>
+        <linearGradient id="gemGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%"   stop-color="#E2CA7E"/>
+          <stop offset="50%"  stop-color="#C9A84C"/>
+          <stop offset="100%" stop-color="#9A7A2E"/>
+        </linearGradient>
+        <linearGradient id="gemShine" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%"   stop-color="#FFF4C9" stop-opacity="0.85"/>
+          <stop offset="100%" stop-color="#FFF4C9" stop-opacity="0"/>
+        </linearGradient>
+        <linearGradient id="gemFeatGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%"   stop-color="#FFECB0"/>
+          <stop offset="50%"  stop-color="#E2CA7E"/>
+          <stop offset="100%" stop-color="#C9A84C"/>
+        </linearGradient>
+        <linearGradient id="gemFeatShine" x1="0%" y1="0%" x2="0%" y2="100%">
+          <stop offset="0%"   stop-color="#FFFBE6" stop-opacity="1"/>
+          <stop offset="100%" stop-color="#FFFBE6" stop-opacity="0"/>
+        </linearGradient>
+        <radialGradient id="gemFeatGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%"   stop-color="#FFF4C9" stop-opacity="0.5"/>
+          <stop offset="100%" stop-color="#FFF4C9" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+    </svg>
+
     <div class="container">
       <div class="servicios-header">
         <span class="section-label reveal">Nuestros servicios</span>
         <h2 class="section-title reveal reveal-d1">
-          Tres formas de <em>trabajar juntos</em>
+          Todo lo que tu marca necesita<br />para <em>crecer</em>
         </h2>
         <p class="section-sub centered reveal reveal-d2">
-          Cada negocio esta en un momento distinto. Por eso ofrecemos
-          diferentes caminos para ayudarte a crecer — elegimos el correcto contigo.
+          Desde la pauta hasta el contenido y la automatización: un solo equipo
+          para atraer, convertir y fidelizar a tus clientes — elegimos contigo
+          la combinación correcta para tu negocio.
         </p>
         <div class="divider"></div>
       </div>
 
       <div class="servicios-grid">
 
-        <!-- Card 1 — Gestion Completa -->
+        <!-- Card 1 — Publicidad digital -->
         <div class="servicio-card reveal">
           <div class="servicio-gem" aria-hidden="true">
             <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="gem1Grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%"   stop-color="#E2CA7E"/>
-                  <stop offset="50%"  stop-color="#C9A84C"/>
-                  <stop offset="100%" stop-color="#9A7A2E"/>
-                </linearGradient>
-                <linearGradient id="gem1Shine" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%"   stop-color="#FFF4C9" stop-opacity="0.85"/>
-                  <stop offset="100%" stop-color="#FFF4C9" stop-opacity="0"/>
-                </linearGradient>
-              </defs>
-              <polygon points="50,6 92,50 50,94 8,50" fill="url(#gem1Grad)" stroke="#E2CA7E" stroke-width="1.2"/>
-              <polygon points="50,6 70,32 50,50 30,32" fill="url(#gem1Shine)" opacity="0.55"/>
+              <polygon points="50,6 92,50 50,94 8,50" fill="url(#gemGrad)" stroke="#E2CA7E" stroke-width="1.2"/>
+              <polygon points="50,6 70,32 50,50 30,32" fill="url(#gemShine)" opacity="0.55"/>
               <polygon points="50,50 70,32 92,50 70,68" fill="#E2CA7E" opacity="0.25"/>
               <polygon points="50,50 30,32 8,50 30,68"  fill="#9A7A2E" opacity="0.25"/>
               <polygon points="50,50 30,68 50,94 70,68" fill="#6B5424" opacity="0.35"/>
               <polygon points="50,6 58,18 50,28 42,18" fill="#FFF4C9" opacity="0.7"/>
             </svg>
           </div>
-          <h3>Gestion Completa de Campañas</h3>
-          <p class="servicio-subtitle">"Manejamos todo por ti"</p>
+          <h3>Publicidad Digital</h3>
+          <p class="servicio-subtitle">Meta &middot; TikTok &middot; Google Ads</p>
           <p class="servicio-desc">
-            Nos encargamos de tu estrategia publicitaria en Meta Ads de
-            principio a fin. Tu apruebas, nosotros ejecutamos y optimizamos cada dia.
+            Diseñamos, lanzamos y optimizamos tus campañas en las plataformas
+            donde está tu cliente. Tú apruebas, nosotros ejecutamos y optimizamos cada día.
           </p>
           <ul class="servicio-bullets">
+            <li>Meta Ads (Facebook e Instagram)</li>
+            <li>TikTok Ads y Google Ads</li>
             <li>Estrategia y creativos incluidos</li>
-            <li>Optimizacion y monitoreo diario</li>
-            <li>Reporte semanal de resultados</li>
-            <li>Comunicacion directa constante</li>
+            <li>Optimización diaria y reporte semanal</li>
           </ul>
           <p class="servicio-ideal">
             <strong>Ideal para</strong>
-            Negocios que quieren delegar y enfocarse en su operacion.
+            Negocios que quieren un flujo constante de clientes y delegar su publicidad.
           </p>
         </div>
 
@@ -1590,24 +2107,9 @@
           <div class="servicio-badge">Mas solicitado</div>
           <div class="servicio-gem" aria-hidden="true">
             <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="gem2Grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%"   stop-color="#FFECB0"/>
-                  <stop offset="50%"  stop-color="#E2CA7E"/>
-                  <stop offset="100%" stop-color="#C9A84C"/>
-                </linearGradient>
-                <linearGradient id="gem2Shine" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%"   stop-color="#FFFBE6" stop-opacity="1"/>
-                  <stop offset="100%" stop-color="#FFFBE6" stop-opacity="0"/>
-                </linearGradient>
-                <radialGradient id="gem2Glow" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%"   stop-color="#FFF4C9" stop-opacity="0.5"/>
-                  <stop offset="100%" stop-color="#FFF4C9" stop-opacity="0"/>
-                </radialGradient>
-              </defs>
-              <circle cx="50" cy="50" r="48" fill="url(#gem2Glow)"/>
-              <polygon points="50,6 92,50 50,94 8,50" fill="url(#gem2Grad)" stroke="#FFECB0" stroke-width="1.4"/>
-              <polygon points="50,6 70,32 50,50 30,32" fill="url(#gem2Shine)" opacity="0.75"/>
+              <circle cx="50" cy="50" r="48" fill="url(#gemFeatGlow)"/>
+              <polygon points="50,6 92,50 50,94 8,50" fill="url(#gemFeatGrad)" stroke="#FFECB0" stroke-width="1.4"/>
+              <polygon points="50,6 70,32 50,50 30,32" fill="url(#gemFeatShine)" opacity="0.75"/>
               <polygon points="50,50 70,32 92,50 70,68" fill="#FFECB0" opacity="0.3"/>
               <polygon points="50,50 30,32 8,50 30,68"  fill="#9A7A2E" opacity="0.22"/>
               <polygon points="50,50 30,68 50,94 70,68" fill="#6B5424" opacity="0.32"/>
@@ -1633,45 +2135,124 @@
           </p>
         </div>
 
-        <!-- Card 3 — IA y CRM -->
+        <!-- Card 3 — Email marketing -->
         <div class="servicio-card reveal reveal-d2">
           <div class="servicio-gem" aria-hidden="true">
             <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="gem3Grad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%"   stop-color="#E2CA7E"/>
-                  <stop offset="50%"  stop-color="#C9A84C"/>
-                  <stop offset="100%" stop-color="#9A7A2E"/>
-                </linearGradient>
-                <linearGradient id="gem3Shine" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%"   stop-color="#FFF4C9" stop-opacity="0.85"/>
-                  <stop offset="100%" stop-color="#FFF4C9" stop-opacity="0"/>
-                </linearGradient>
-              </defs>
-              <polygon points="50,6 92,50 50,94 8,50" fill="url(#gem3Grad)" stroke="#E2CA7E" stroke-width="1.2"/>
-              <polygon points="50,6 70,32 50,50 30,32" fill="url(#gem3Shine)" opacity="0.55"/>
+              <polygon points="50,6 92,50 50,94 8,50" fill="url(#gemGrad)" stroke="#E2CA7E" stroke-width="1.2"/>
+              <polygon points="50,6 70,32 50,50 30,32" fill="url(#gemShine)" opacity="0.55"/>
               <polygon points="50,50 70,32 92,50 70,68" fill="#E2CA7E" opacity="0.25"/>
               <polygon points="50,50 30,32 8,50 30,68"  fill="#9A7A2E" opacity="0.25"/>
               <polygon points="50,50 30,68 50,94 70,68" fill="#6B5424" opacity="0.35"/>
               <polygon points="50,6 58,18 50,28 42,18" fill="#FFF4C9" opacity="0.7"/>
             </svg>
           </div>
-          <h3>Integracion de IA y CRM</h3>
-          <p class="servicio-subtitle">"Tu negocio trabaja solo"</p>
+          <h3>Email Marketing</h3>
+          <p class="servicio-subtitle">"Tu lista, tu activo más rentable"</p>
           <p class="servicio-desc">
-            Implementamos un sistema automatizado que responde leads, hace
-            seguimiento y conecta tus herramientas — sin que tu muevas un dedo.
+            Creamos campañas de email que nutren a tus prospectos, reactivan
+            clientes antiguos y generan ventas recurrentes sin depender solo de la pauta.
           </p>
           <ul class="servicio-bullets">
-            <li>CRM configurado en GoHighLevel</li>
-            <li>Respuestas automaticas por WhatsApp</li>
-            <li>Flujos de seguimiento y reactivacion</li>
-            <li>Integraciones con Meta Ads y mas</li>
+            <li>Estrategia y calendario de envíos</li>
+            <li>Copy y diseño de cada correo</li>
+            <li>Secuencias automáticas de bienvenida y seguimiento</li>
+            <li>Métricas de apertura, clics y ventas</li>
           </ul>
           <p class="servicio-ideal">
             <strong>Ideal para</strong>
-            Negocios con volumen de leads que pierden ventas por falta de seguimiento.
+            Negocios con base de clientes que quieren vender más a quienes ya los conocen.
           </p>
+        </div>
+
+        <!-- Card 4 — Grabacion y edicion de contenido -->
+        <div class="servicio-card reveal">
+          <div class="servicio-gem" aria-hidden="true">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="50,6 92,50 50,94 8,50" fill="url(#gemGrad)" stroke="#E2CA7E" stroke-width="1.2"/>
+              <polygon points="50,6 70,32 50,50 30,32" fill="url(#gemShine)" opacity="0.55"/>
+              <polygon points="50,50 70,32 92,50 70,68" fill="#E2CA7E" opacity="0.25"/>
+              <polygon points="50,50 30,32 8,50 30,68"  fill="#9A7A2E" opacity="0.25"/>
+              <polygon points="50,50 30,68 50,94 70,68" fill="#6B5424" opacity="0.35"/>
+              <polygon points="50,6 58,18 50,28 42,18" fill="#FFF4C9" opacity="0.7"/>
+            </svg>
+          </div>
+          <h3>Grabación y Edición de Contenido</h3>
+          <p class="servicio-subtitle">"Contenido que detiene el scroll"</p>
+          <p class="servicio-desc">
+            Grabamos y editamos videos pensados para anuncios y redes sociales:
+            con guion, intención y el estilo de tu marca.
+          </p>
+          <ul class="servicio-bullets">
+            <li>Guiones y dirección creativa</li>
+            <li>Grabación de contenido para tu marca</li>
+            <li>Edición de Reels, TikToks y anuncios</li>
+            <li>Formatos adaptados a cada plataforma</li>
+          </ul>
+          <p class="servicio-ideal">
+            <strong>Ideal para</strong>
+            Marcas que necesitan creativos de calidad de forma constante.
+          </p>
+        </div>
+
+        <!-- Card 5 — Contenido organico -->
+        <div class="servicio-card reveal reveal-d1">
+          <div class="servicio-gem" aria-hidden="true">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <polygon points="50,6 92,50 50,94 8,50" fill="url(#gemGrad)" stroke="#E2CA7E" stroke-width="1.2"/>
+              <polygon points="50,6 70,32 50,50 30,32" fill="url(#gemShine)" opacity="0.55"/>
+              <polygon points="50,50 70,32 92,50 70,68" fill="#E2CA7E" opacity="0.25"/>
+              <polygon points="50,50 30,32 8,50 30,68"  fill="#9A7A2E" opacity="0.25"/>
+              <polygon points="50,50 30,68 50,94 70,68" fill="#6B5424" opacity="0.35"/>
+              <polygon points="50,6 58,18 50,28 42,18" fill="#FFF4C9" opacity="0.7"/>
+            </svg>
+          </div>
+          <h3>Contenido Orgánico</h3>
+          <p class="servicio-subtitle">"Presencia que genera confianza"</p>
+          <p class="servicio-desc">
+            Manejamos tus redes sociales con una estrategia de contenido que
+            construye autoridad y convierte seguidores en clientes.
+          </p>
+          <ul class="servicio-bullets">
+            <li>Estrategia y calendario de contenido</li>
+            <li>Publicaciones para Instagram, TikTok y Facebook</li>
+            <li>Copywriting para cada publicación</li>
+            <li>Análisis de crecimiento y ajustes</li>
+          </ul>
+          <p class="servicio-ideal">
+            <strong>Ideal para</strong>
+            Negocios que quieren una marca fuerte, no solo anuncios.
+          </p>
+        </div>
+
+        <!-- Card 6 — Automatizaciones con IA (lleva a la seccion de IA) -->
+        <div class="servicio-card featured reveal reveal-d2">
+          <div class="servicio-badge">Servicio estrella</div>
+          <div class="servicio-gem" aria-hidden="true">
+            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="50" cy="50" r="48" fill="url(#gemFeatGlow)"/>
+              <polygon points="50,6 92,50 50,94 8,50" fill="url(#gemFeatGrad)" stroke="#FFECB0" stroke-width="1.4"/>
+              <polygon points="50,6 70,32 50,50 30,32" fill="url(#gemFeatShine)" opacity="0.75"/>
+              <polygon points="50,50 70,32 92,50 70,68" fill="#FFECB0" opacity="0.3"/>
+              <polygon points="50,50 30,32 8,50 30,68"  fill="#9A7A2E" opacity="0.22"/>
+              <polygon points="50,50 30,68 50,94 70,68" fill="#6B5424" opacity="0.32"/>
+              <polygon points="50,6 58,18 50,28 42,18" fill="#FFFBE6" opacity="0.9"/>
+              <polygon points="12,50 18,48 18,52" fill="#FFFBE6" opacity="0.6"/>
+            </svg>
+          </div>
+          <h3>Automatizaciones con IA</h3>
+          <p class="servicio-subtitle">"Tu negocio trabaja solo"</p>
+          <p class="servicio-desc">
+            Implementamos inteligencia artificial y sistemas automatizados que
+            atienden, organizan y protegen tu empresa — sin que tú muevas un dedo.
+          </p>
+          <ul class="servicio-bullets">
+            <li>Agentes de IA que trabajan 24/7</li>
+            <li>CRM y respuestas automáticas por WhatsApp</li>
+            <li>Ciberseguridad empresarial</li>
+            <li>Software de finanzas y facturación electrónica</li>
+          </ul>
+          <a href="#inteligencia-artificial" class="servicio-link">Ver servicios de IA &rarr;</a>
         </div>
 
       </div>
@@ -1681,6 +2262,251 @@
         <a href="https://calendly.com/aagudelosales/sesion-de-admision-ethereal-agency" target="_blank" rel="noopener" class="btn btn-gold">
           Hablemos y te orientamos gratis
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       INTELIGENCIA ARTIFICIAL — SERVICIOS ESTRELLA
+  ============================================================ -->
+  <section class="ia" id="inteligencia-artificial">
+    <div class="container">
+      <div class="ia-header">
+        <span class="section-label reveal">Servicios estrella &middot; Inteligencia Artificial</span>
+        <h2 class="section-title reveal reveal-d1">
+          Automatiza tu empresa con<br /><em>inteligencia artificial</em>
+        </h2>
+        <p class="section-sub centered reveal reveal-d2">
+          Soluciones a la medida que eliminan tareas repetitivas, protegen tu
+          información y te dan control total de tu operación.
+        </p>
+        <div class="divider"></div>
+      </div>
+
+      <div class="ia-intro">
+        <div class="ia-photo reveal">
+          <img src="ethereal-assets/george-ia.jpg" alt="George — Equipo de Inteligencia Artificial de Ethereal Agency" loading="lazy" />
+        </div>
+
+        <div class="ia-intro-text">
+          <h3 class="reveal">Tecnología que trabaja para tu empresa las 24&nbsp;horas</h3>
+          <p class="reveal reveal-d1">
+            La inteligencia artificial ya no es el futuro: es la ventaja competitiva de hoy.
+            Diseñamos e implementamos herramientas que atienden a tus clientes, cuidan tu
+            información y mantienen tus números en orden, para que tu equipo se enfoque
+            en lo que de verdad hace crecer el negocio.
+          </p>
+          <p class="ia-index-label reveal reveal-d2">Nuestros 4 servicios estrella</p>
+          <ol class="ia-index reveal reveal-d2">
+            <li><a href="#ia-agentes"><span>01</span>Agentes de Inteligencia Artificial</a></li>
+            <li><a href="#ia-ciberseguridad"><span>02</span>Ciberseguridad Empresarial</a></li>
+            <li><a href="#ia-finanzas"><span>03</span>Software de Finanzas Automatizado</a></li>
+            <li><a href="#ia-facturacion"><span>04</span>Facturación Electrónica ante la DIAN</a></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="ia-grid">
+
+        <!-- 01 — Agentes de IA -->
+        <article class="ia-card reveal" id="ia-agentes">
+          <div class="ia-card-top">
+            <div class="ia-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M12 8V4"/><circle cx="12" cy="3" r="1"/><circle cx="9" cy="14" r="1.2"/><circle cx="15" cy="14" r="1.2"/><path d="M2 13v3M22 13v3"/></svg>
+            </div>
+            <span class="ia-num">01</span>
+          </div>
+          <h3>Agentes de Inteligencia Artificial</h3>
+
+          <div class="ia-block">
+            <h4>¿Qué hacemos?</h4>
+            <p>Creamos asistentes de IA personalizados que pueden trabajar para tu empresa las 24 horas.</p>
+          </div>
+          <div class="ia-block">
+            <h4>¿Para qué sirve?</h4>
+            <p>
+              Un agente puede responder preguntas, atender solicitudes, buscar información,
+              organizar datos, generar documentos, clasificar clientes o ayudar a los empleados.
+            </p>
+          </div>
+          <div class="ia-block">
+            <h4>¿Cómo se aplica?</h4>
+            <p>
+              Por ejemplo, una empresa recibe cientos de solicitudes por WhatsApp.
+              En lugar de que una persona responda cada mensaje:
+            </p>
+            <ol class="ia-flow">
+              <li>Cliente</li>
+              <li>Agente IA</li>
+              <li>Entiende la solicitud</li>
+              <li>Consulta información</li>
+              <li>Responde</li>
+              <li>Registra la información</li>
+              <li class="optional">Si es necesario, pasa el caso a un empleado</li>
+            </ol>
+          </div>
+          <div class="ia-benefit">
+            <h4>Beneficios para tu empresa</h4>
+            <ul>
+              <li>Atención más rápida</li>
+              <li>Menos trabajo repetitivo</li>
+              <li>Disponibilidad 24/7</li>
+              <li>Menores costos operativos</li>
+              <li>Mejor experiencia para clientes y empleados</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 02 — Ciberseguridad -->
+        <article class="ia-card reveal reveal-d1" id="ia-ciberseguridad">
+          <div class="ia-card-top">
+            <div class="ia-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            </div>
+            <span class="ia-num">02</span>
+          </div>
+          <h3>Ciberseguridad Empresarial</h3>
+
+          <div class="ia-block">
+            <h4>¿Qué hacemos?</h4>
+            <p>
+              Analizamos qué tan protegida está tu empresa y encontramos puntos débiles
+              antes de que se conviertan en problemas.
+            </p>
+          </div>
+          <div class="ia-block">
+            <h4>¿Para qué sirve?</h4>
+            <p>
+              Una empresa puede perder información, dinero o incluso detener sus operaciones
+              por una cuenta comprometida, un malware, una mala configuración o una
+              vulnerabilidad. Evaluamos la seguridad y proponemos soluciones.
+            </p>
+          </div>
+          <div class="ia-block">
+            <h4>Revisamos</h4>
+            <ul class="ia-chips">
+              <li>Equipos</li>
+              <li>Usuarios y contraseñas</li>
+              <li>Permisos</li>
+              <li>Correos corporativos</li>
+              <li>Sistemas</li>
+              <li>Redes</li>
+              <li>Copias de seguridad</li>
+              <li>Aplicaciones</li>
+              <li>Servicios en la nube</li>
+            </ul>
+          </div>
+          <div class="ia-benefit">
+            <h4>Beneficio para tu empresa</h4>
+            <ul>
+              <li>Detectar problemas antes de que un atacante los aproveche</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 03 — Software de finanzas -->
+        <article class="ia-card reveal" id="ia-finanzas">
+          <div class="ia-card-top">
+            <div class="ia-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><line x1="4" y1="20" x2="20" y2="20"/><rect x="5" y="12" width="3" height="6"/><rect x="10.5" y="8" width="3" height="10"/><rect x="16" y="4" width="3" height="14"/></svg>
+            </div>
+            <span class="ia-num">03</span>
+          </div>
+          <h3>Software de Finanzas Automatizado</h3>
+
+          <div class="ia-block">
+            <h4>¿Qué hacemos?</h4>
+            <p>
+              Implementamos un software de automatización para llevar las finanzas de tu
+              empresa y tener siempre al día tus ingresos, gastos y márgenes.
+            </p>
+          </div>
+          <div class="ia-block">
+            <h4>¿Para qué sirve?</h4>
+            <p>
+              Muchas empresas toman decisiones sin saber realmente cuánto ganan. Con tus
+              finanzas organizadas de forma automática, sabes en todo momento dónde está
+              tu dinero y qué tan rentable es tu negocio.
+            </p>
+          </div>
+          <div class="ia-block">
+            <h4>Tienes al día</h4>
+            <ul class="ia-chips">
+              <li>Ingresos</li>
+              <li>Gastos</li>
+              <li>Margen bruto</li>
+              <li>Margen neto</li>
+              <li>Flujo de caja</li>
+              <li>Reportes por periodo</li>
+            </ul>
+          </div>
+          <div class="ia-benefit">
+            <h4>Beneficios para tu empresa</h4>
+            <ul>
+              <li>Números siempre actualizados</li>
+              <li>Menos trabajo manual en hojas de cálculo</li>
+              <li>Claridad sobre la rentabilidad real</li>
+              <li>Decisiones basadas en datos</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- 04 — Facturacion electronica DIAN -->
+        <article class="ia-card reveal reveal-d1" id="ia-facturacion">
+          <div class="ia-card-top">
+            <div class="ia-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="17" y2="13"/><line x1="9" y1="17" x2="14" y2="17"/></svg>
+            </div>
+            <span class="ia-num">04</span>
+          </div>
+          <h3>Facturación Electrónica ante la DIAN</h3>
+
+          <div class="ia-block">
+            <h4>¿Qué hacemos?</h4>
+            <p>
+              Implementamos un software para automatizar tu facturación electrónica ante
+              la DIAN con tus clientes, desde la generación de la factura hasta su envío.
+            </p>
+          </div>
+          <div class="ia-block">
+            <h4>¿Para qué sirve?</h4>
+            <p>
+              Facturar a mano consume tiempo y abre la puerta a errores. Con un sistema
+              automatizado, cada venta genera su factura electrónica de forma rápida y ordenada.
+            </p>
+          </div>
+          <div class="ia-block">
+            <h4>¿Cómo funciona?</h4>
+            <ol class="ia-flow">
+              <li>Venta</li>
+              <li>Se genera la factura</li>
+              <li>Validación ante la DIAN</li>
+              <li>Envío al cliente</li>
+              <li>Queda registrada</li>
+            </ol>
+          </div>
+          <div class="ia-benefit">
+            <h4>Beneficios para tu empresa</h4>
+            <ul>
+              <li>Facturas emitidas en segundos</li>
+              <li>Menos errores manuales</li>
+              <li>Envío automático a tus clientes</li>
+              <li>Todo organizado y fácil de consultar</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="ia-cta reveal">
+        <p>¿Quieres saber qué procesos de tu empresa puede automatizar la IA?</p>
+        <div class="ia-cta-btns">
+          <!-- Contacto de automatizaciones / IA: WhatsApp +57 322 246 9469 -->
+          <a href="https://wa.me/573222469469?text=Hola%2C%20me%20interesan%20los%20servicios%20de%20Inteligencia%20Artificial%20y%20automatizaci%C3%B3n%20de%20Ethereal%20Agency" target="_blank" rel="noopener" class="btn btn-gold">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Contáctanos por WhatsApp
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -1712,6 +2538,9 @@
           </p>
           <p class="reveal reveal-d3">
             Por eso creé Ethereal: vi el mismo patrón repetirse — negocios buenos, con productos reales, perdiendo clientes potenciales todos los días solo porque nadie les estaba mostrando al mundo lo que hacen. Eso tiene solución. Y es exactamente lo que hacemos.
+          </p>
+          <p class="reveal reveal-d4">
+            Hoy, desde Medellín, atendemos negocios en cualquier parte del mundo y hemos trabajado con clientes en España y Estados Unidos. Y ya no nos limitamos a Meta: pautamos en Meta, TikTok y Google Ads, hacemos email marketing, grabamos y editamos contenido, manejamos contenido orgánico y desarrollamos automatizaciones con inteligencia artificial.
           </p>
         </div>
 
@@ -1777,6 +2606,44 @@
         <div class="nicho-badge reveal reveal-d3">
           <span class="nicho-emoji">🤖</span>
           <span class="nicho-name">Automatización</span>
+        </div>
+        <div class="nicho-badge reveal">
+          <span class="nicho-emoji">💄</span>
+          <span class="nicho-name">Belleza</span>
+        </div>
+        <div class="nicho-badge reveal reveal-d1">
+          <span class="nicho-emoji">👗</span>
+          <span class="nicho-name">Ropa</span>
+        </div>
+        <div class="nicho-badge reveal reveal-d2">
+          <span class="nicho-emoji">🧽</span>
+          <span class="nicho-name">Servicios de limpieza profesional</span>
+        </div>
+        <div class="nicho-badge reveal reveal-d3">
+          <span class="nicho-emoji">💈</span>
+          <span class="nicho-name">Barberías</span>
+        </div>
+        <div class="nicho-badge reveal">
+          <span class="nicho-emoji">🏫</span>
+          <span class="nicho-name">Colegios</span>
+        </div>
+      </div>
+
+      <div class="global-band reveal">
+        <h3>Desde Medellín <em>para el mundo</em></h3>
+        <div class="global-items">
+          <div class="global-item">
+            <span class="global-kicker">Nuestra base</span>
+            <strong>Medellín, Colombia</strong>
+          </div>
+          <div class="global-item">
+            <span class="global-kicker">Alcance</span>
+            <strong>Atendemos negocios en todo el mundo</strong>
+          </div>
+          <div class="global-item">
+            <span class="global-kicker">Clientes en</span>
+            <strong>Colombia, España y Estados Unidos</strong>
+          </div>
         </div>
       </div>
     </div>
@@ -1878,9 +2745,9 @@
             <span class="diff-icon">&#10022;</span>
             <h3>Equipo especializado completo</h3>
             <p>
-              Detras de tus campañas hay un Media Buyer, Copywriter,
-              Data Analyst y Content Creator trabajando en conjunto para maximizar
-              cada peso que inviertes.
+              Detrás de tu marca hay un Media Buyer, Copywriter, Data Analyst,
+              Content Creator y especialista en IA trabajando en conjunto para
+              maximizar cada peso que inviertes.
             </p>
           </div>
           <div class="diff-card reveal reveal-d3">
@@ -1948,34 +2815,6 @@
   </section>
 
   <!-- ============================================================
-       6 — PRUEBA SOCIAL (Video)
-  ============================================================ -->
-  <section class="testimonios" id="testimonios">
-    <div class="container">
-      <div class="testimonios-header">
-        <span class="section-label reveal">Prueba social</span>
-        <h2 class="section-title reveal reveal-d1">
-          Lo que dicen <em>nuestros clientes</em>
-        </h2>
-        <div class="divider"></div>
-      </div>
-
-      <div class="video-wrapper reveal">
-        <video
-          controls
-          preload="metadata"
-          poster="ethereal-assets/logo.png"
-          playsinline
-        >
-          <source src="Testimonio.mp4" type="video/mp4" />
-          Tu navegador no soporta video HTML5.
-        </video>
-      </div>
-      <p class="video-caption reveal">Resultados reales de clientes reales.</p>
-    </div>
-  </section>
-
-  <!-- ============================================================
        7 — APLICACION
   ============================================================ -->
   <section class="aplicacion" id="aplicar">
@@ -2025,7 +2864,7 @@
         </div>
 
         <div class="form-group reveal">
-          <p class="form-group-label">¿Has hecho publicidad en Meta Ads antes?</p>
+          <p class="form-group-label">¿Has hecho publicidad digital antes (Meta, TikTok o Google Ads)?</p>
           <div class="radio-cards">
             <input type="radio" id="ads-1" name="experiencia_ads" value="Nunca he pautado" required />
             <label for="ads-1">Nunca he pautado</label>
@@ -2150,6 +2989,7 @@
         <a href="https://instagram.com/teo_aagudelo" target="_blank" rel="noopener">@teo_aagudelo</a>
         <a href="Terminos_y_Condiciones_Ethereal_Agency.pdf" target="_blank" rel="noopener">Política de Privacidad</a>
       </div>
+      <p class="footer-location">Medellín, Colombia &middot; Atendemos clientes en todo el mundo</p>
       <p class="footer-copy">&copy; 2026 Ethereal Agency. Todos los derechos reservados.</p>
     </div>
   </footer>
@@ -2185,6 +3025,14 @@
     }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
     document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // Testimonios: solo un video reproduciéndose a la vez
+    const testimonialVideos = document.querySelectorAll('.video-grid video');
+    testimonialVideos.forEach(video => {
+      video.addEventListener('play', () => {
+        testimonialVideos.forEach(other => { if (other !== video) other.pause(); });
+      });
+    });
 
     // Application form → FormSubmit (AJAX). La conversión de Google Ads se
     // dispara únicamente tras confirmación de envío exitoso, una sola vez.
@@ -2230,7 +3078,7 @@
           'WhatsApp': whatsapp,
           'Nicho': nicho,
           'Etapa del negocio': etapa,
-          'Experiencia en Meta Ads': experiencia,
+          'Experiencia en publicidad digital': experiencia,
           'Facturacion mensual': facturacion
         })
       })
